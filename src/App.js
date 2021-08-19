@@ -38,6 +38,7 @@ const App = () => {
             renders the first one that matches the current URL. */}
           <Switch>
             <Switch>
+              <Route path="/" exact component={Home} />
               <Route path="/login" exact component={Login} />
               <Route path="/klasemen" exact component={Klasemen} />
             </Switch>
