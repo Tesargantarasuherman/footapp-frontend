@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-
+import {
+    Link
+  } from "react-router-dom";
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -14,7 +16,7 @@ class Home extends Component {
         axios.get('http://localhost:8000/turnamen').then(res => {
             this.setState({
                 turnamen: res.data.data
-            }, () => console.log('turnamen',this.state.turnamen))
+            }, () => console.log('turnamen', this.state.turnamen))
         }
         )
             .catch(error => {
@@ -24,7 +26,17 @@ class Home extends Component {
     render() {
         return (
             <div>
-                Home
+                {
+                    this.state.turnamen.map(tur => {
+                        return (
+                            <div className="card">
+                                <div className="card-body">
+                                    <Link to={`/klasemen/${tur.id}`}>{tur.nama_turnamen}</Link>
+                                </div>
+                            </div>
+                        )
+                    })
+                }
             </div>
         );
     }

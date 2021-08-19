@@ -10,8 +10,9 @@ class Klasemen extends Component {
         };
     }
     componentDidMount() {
+        let idKlasemen = this.props.match.params.id;
 
-        axios.get('http://localhost:8000/klasemen/1').then(res => {
+        axios.get(`http://localhost:8000/klasemen/${idKlasemen}`).then(res => {
             this.setState({
                 klasemen: res.data.data.klasemen
             }, () => console.log(this.state.klasemen))

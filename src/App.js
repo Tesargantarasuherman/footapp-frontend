@@ -40,7 +40,7 @@ const App = () => {
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/login" exact component={Login} />
-              <Route path="/klasemen" exact component={Klasemen} />
+              <Route path="/klasemen/:id" exact component={Klasemen} />
             </Switch>
           </Switch>
         </div>
