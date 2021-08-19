@@ -1,23 +1,49 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Home from './pages/Home';
+import FormLogin from './component/FormLogin';
+import FormRegister from './component/FormRegister';
+import Login from './pages/Login';
+import Klasemen from './pages/Klasemen';
+const App = () => {
 
-function App() {
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <div>
+          <nav className="navbar navbar-expand-lg navbar-light bg-green">
+            <Link className="navbar-brand" to="/" >Footsal</Link>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon" />
+            </button>
+            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div className="navbar-nav">
+                <Link className="nav-item nav-link" to='/klasemen'>Klasemen</Link>
+              </div>
+            </div>
+
+          </nav>
+          {/* LOGIN */}
+
+
+          {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+          <Switch>
+            <Switch>
+              <Route path="/login" exact component={Login} />
+              <Route path="/klasemen" exact component={Klasemen} />
+            </Switch>
+          </Switch>
+        </div>
+      </Router>
     </div>
   );
 }
