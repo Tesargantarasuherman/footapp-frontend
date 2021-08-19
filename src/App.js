@@ -26,7 +26,7 @@ const App = () => {
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div className="navbar-nav">
-                <Link className="nav-item nav-link" to='/klasemen'>Klasemen</Link>
+                <Link className="nav-item nav-link" to='/turnamen'>Turnamen</Link>
               </div>
             </div>
 
