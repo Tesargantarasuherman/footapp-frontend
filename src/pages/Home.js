@@ -25,11 +25,11 @@ class Home extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="container mt-2">
                 {
                     this.state.turnamen.map(tur => {
                         return (
-                            <div className="card">
+                            <div className="card my-2">
                                 <div className="card-body">
                                     <Link to={`/klasemen/${tur.id}`}>{tur.nama_turnamen}</Link>
                                 </div>

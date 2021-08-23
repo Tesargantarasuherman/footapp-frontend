@@ -6,7 +6,8 @@ class Klasemen extends Component {
         super(props);
 
         this.state = {
-            klasemen: []
+            klasemen: [],
+            turnamen:''
         };
     }
     componentDidMount() {
@@ -14,8 +15,9 @@ class Klasemen extends Component {
 
         axios.get(`http://localhost:8000/klasemen/${idKlasemen}`).then(res => {
             this.setState({
+                turnamen: res.data.data.klasifikasi_turnamen,
                 klasemen: res.data.data.klasemen
-            }, () => console.log(this.state.klasemen))
+            }, () => console.log(res.data.data.klasifikasi_turnamen))
         }
         )
             .catch(error => {
@@ -24,7 +26,9 @@ class Klasemen extends Component {
     }
     render() {
         return (
+            <>
             <div className="container mt-2">
+            <h3>Klasemen {this.state.turnamen}</h3>
                 <table className="table table-striped">
                     <thead>
                         <tr className="bg-success">
@@ -57,6 +61,7 @@ class Klasemen extends Component {
                 </table>
 
             </div>
+            </>
         );
     }
 }
