@@ -8,7 +8,8 @@ class Home extends Component {
         super(props);
 
         this.state = {
-            turnamen: []
+            turnamen: [],
+            jadwal: [],
         };
     }
     componentDidMount() {
@@ -17,6 +18,17 @@ class Home extends Component {
             this.setState({
                 turnamen: res.data.data
             }, () => console.log('turnamen', this.state.turnamen))
+        }
+        )
+            .catch(error => {
+                console.log(error)
+            })
+    }
+    getJadwal =(id)=>{
+        axios.get(`http://localhost:8000/pertandingan/${id}`).then(res => {
+            this.setState({
+                jadwal: res.data.data
+            }, () => console.log(res.data.data))
         }
         )
             .catch(error => {
