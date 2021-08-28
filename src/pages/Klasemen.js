@@ -94,7 +94,7 @@ class Klasemen extends Component {
                                         </div>
                                         <div className="col">
                                         <h6>{jadwal.waktu_pertandingan}</h6>
-                                        <h6>{jadwal.waktu_pertandingan}</h6>
+                                        <h6>{jadwal.tanggal_pertandingan}</h6>
                                         </div>
                                         <div className="col">
                                             <h6>{jadwal.klub_away}</h6>
@@ -117,7 +117,7 @@ class Klasemen extends Component {
                                             <h6>{jadwal.skor_home}</h6>
                                         </div>
                                         <div className="col">
-                                        <h6>{jadwal.waktu_pertandingan}</h6>
+                                        <h6>{jadwal.tanggal_pertandingan}</h6>
                                         <h6>{jadwal.waktu_pertandingan}</h6>
                                         </div>
                                         <div className="col">
