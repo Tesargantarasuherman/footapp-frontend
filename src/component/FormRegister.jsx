@@ -38,18 +38,18 @@ class FormRegister extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmitRegister}>
-                    <h3>Register</h3>
+                    <h3 className="text-white">Register</h3>
                     <div className="form-group">
-                        <label htmlFor="exampleInputEmail1">Nama</label>
-                        <input type="text" name="name" className="form-control" value={this.state.formRegister.name} onChange={this.handleFormChangeRegister} placeholder="Enter email" />
+                        <label className="text-white">Nama</label>
+                        <input type="text" name="name" className="form-control form-shadow" value={this.state.formRegister.name} onChange={this.handleFormChangeRegister} placeholder="Enter email" />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="exampleInputEmail1">Email address</label>
-                        <input type="email" name="email" className="form-control" value={this.state.formRegister.email} onChange={this.handleFormChangeRegister} placeholder="Enter email" />
+                        <label className="text-white">Email address</label>
+                        <input type="email" name="email" className="form-control form-shadow" value={this.state.formRegister.email} onChange={this.handleFormChangeRegister} placeholder="Enter email" />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="exampleInputPassword1">Password</label>
-                        <input type="password" name="password" className="form-control" value={this.state.formRegister.password} onChange={this.handleFormChangeRegister} placeholder="Password" />
+                        <label className="text-white">Password</label>
+                        <input type="password" name="password" className="form-control form-shadow" value={this.state.formRegister.password} onChange={this.handleFormChangeRegister} placeholder="Password" />
                     </div>
                     <button type="submit" className="btn btn-success btn-block mb-4">Register</button>
                 </form>

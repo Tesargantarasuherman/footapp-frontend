@@ -37,14 +37,14 @@ class FormLogin extends Component {
         return (
             <div>
                 <form  onSubmit={this.handleSubmitLogin}>
-                    <h3>Login</h3>
+                    <h3 className="text-white">Login</h3>
                     <div className="form-group">
-                        <label htmlFor="exampleInputEmail1">Email address</label>
-                        <input type="email" className="form-control" name="email" value={this.state.formLogin.email} onChange={this.handleFormChangeLogin}  placeholder="Enter email" />
+                        <label className="text-white">Email address</label>
+                        <input type="email" className="form-control form-shadow" name="email" value={this.state.formLogin.email} onChange={this.handleFormChangeLogin}  placeholder="Enter email" />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="exampleInputPassword1">Password</label>
-                        <input type="password" className="form-control"  value={this.state.formLogin.password}
+                        <label className="text-white">Password</label>
+                        <input type="password" className="form-control form-shadow"  value={this.state.formLogin.password}
                             name="password"
                             onChange={this.handleFormChangeLogin} placeholder="Password" placeholder="Password" />
                     </div>
