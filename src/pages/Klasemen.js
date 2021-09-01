@@ -142,10 +142,70 @@ class Klasemen extends Component {
                             }
                         </tbody>
                     </table>
-                    {/* Jadwal Pertandingan */}
+                    {/* hasil Pertandingan */}
+                    <div className=" mx-2 wrapper-hasil">
+                        {/*  */}
+                        <div className="card-hasil-pertandingan px-2 py-4">
+                            <div className="d-flex justify-content-between">
+                                <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                <div className="d-flex align-items-center">
+                                    <div className="text-center">
+                                        <span>11 September</span><br/>
+                                        <span>19.00</span>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                </div>
+                            </div>
+                        </div>
+                        {/*  */}
+                        {/*  */}
+                        <div className="card-hasil-pertandingan px-2 py-4">
+                            <div className="d-flex justify-content-between">
+                                <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                <div className="d-flex align-items-center">
+                                    <div className="text-center">
+                                        <span>11 September</span><br/>
+                                        <span>19.00</span>
+                                    </div>
+                                </div>
+                                <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                            </div>
+                        </div>
+                        {/*  */}
+                        {/*  */}
+                        <div className="card-hasil-pertandingan px-2 py-4">
+                            <div className="d-flex justify-content-between">
+                                <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                <div className="d-flex align-items-center">
+                                    <div className="text-center">
+                                        <span>11 September</span><br/>
+                                        <span>19.00</span>
+                                    </div>
+                                </div>
+                                <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                            </div>
+                        </div>
+                        {/*  */}
+                        {/*  */}
+                        <div className="card-hasil-pertandingan px-2 py-4">
+                            <div className="d-flex justify-content-between">
+                                <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                <div className="d-flex align-items-center">
+                                    <div className="text-center">
+                                        <span>11 September</span><br/>
+                                        <span>19.00</span>
+                                    </div>
+                                </div>
+                                <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                            </div>
+                        </div>
+                        {/*  */}
+                    </div>
 
-
-                    {/* end Jadwal Pertandingan */}
+                    {/* end hasil Pertandingan */}
 
                 </div>
             </>

@@ -45,7 +45,6 @@ body{
   line-height:30px !important;
 }
 .wrapper-jadwal{
-  border: 2px solid #16a085;
   min-height: 110px;
   display: flex;
   overflow-x: auto;
@@ -61,6 +60,25 @@ body{
   margin-right: 10px;
 }
 .card-jadwal-pertandingan{
+  border: 2px solid #16a085;
+  border-radius: 5px;
+}
+.wrapper-hasil{
+  min-height: 110px;
+  display: flex;
+  overflow-x: auto;
+  border-radius: 5px;
+
+}
+.wrapper-hasil::-webkit-scrollbar{
+}
+.wrapper-hasil .card-hasil-pertandingan{
+  min-width: 350px !important;
+  height: 110px !important;
+  line-height: 30px !important;
+  margin-right: 10px;
+}
+.card-hasil-pertandingan{
   border: 2px solid #16a085;
   border-radius: 5px;
 }
