@@ -48,6 +48,8 @@ class Klasemen extends Component {
         return (
             <>
                 <div className="container mt-2 ">
+                <h3 className="text-secondary">Jadwal Pertandingan</h3>
+
                     <div className=" mx-2 wrapper-jadwal">
                         {/*  */}
                         <div className="card-jadwal-pertandingan px-2 py-4">
@@ -130,7 +132,7 @@ class Klasemen extends Component {
                         </div>
                         {/*  */}
                     </div>
-                    <h3>Klasemen {this.state.turnamen}</h3>
+                    <h3 className="text-secondary">Klasemen {this.state.turnamen}</h3>
                     <table className="table table-striped">
                         <thead>
                             <tr className="bg-success font-white">
@@ -167,7 +169,10 @@ class Klasemen extends Component {
                         </tbody>
                     </table>
                     {/* hasil Pertandingan */}
+                    <h3 className="text-secondary">Hasil Pertandingan</h3>
+
                     <div className=" mx-2 wrapper-hasil">
+
                         {/*  */}
                         <div className="card-hasil-pertandingan px-2 py-4">
                             <div className="d-flex justify-content-around">
