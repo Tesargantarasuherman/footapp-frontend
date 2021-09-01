@@ -47,10 +47,52 @@ class Klasemen extends Component {
     render() {
         return (
             <>
-                <div className="container mt-2">
-                    <div className="row">
+                <div className="container mt-2 ">
+                    <div className=" mx-2 wrapper-jadwal">
                         {/*  */}
-                        <div className="col-md-4 card-jadwal-pertandingan px-2 py-4">
+                        <div className="card-jadwal-pertandingan px-2 py-4">
+                            <div className="d-flex justify-content-between">
+                                <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                <div className="d-flex align-items-center">
+                                    <div className="text-center">
+                                        <span>11 September</span><br/>
+                                        <span>19.00</span>
+                                    </div>
+                                </div>
+                                <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                            </div>
+                        </div>
+                        {/*  */}
+                        {/*  */}
+                        <div className="card-jadwal-pertandingan px-2 py-4">
+                            <div className="d-flex justify-content-between">
+                                <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                <div className="d-flex align-items-center">
+                                    <div className="text-center">
+                                        <span>11 September</span><br/>
+                                        <span>19.00</span>
+                                    </div>
+                                </div>
+                                <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                            </div>
+                        </div>
+                        {/*  */}
+                        {/*  */}
+                        <div className="card-jadwal-pertandingan px-2 py-4">
+                            <div className="d-flex justify-content-between">
+                                <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                <div className="d-flex align-items-center">
+                                    <div className="text-center">
+                                        <span>11 September</span><br/>
+                                        <span>19.00</span>
+                                    </div>
+                                </div>
+                                <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                            </div>
+                        </div>
+                        {/*  */}
+                        {/*  */}
+                        <div className="card-jadwal-pertandingan px-2 py-4">
                             <div className="d-flex justify-content-between">
                                 <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
                                 <div className="d-flex align-items-center">
