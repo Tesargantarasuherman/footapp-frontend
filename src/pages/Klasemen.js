@@ -51,57 +51,81 @@ class Klasemen extends Component {
                     <div className=" mx-2 wrapper-jadwal">
                         {/*  */}
                         <div className="card-jadwal-pertandingan px-2 py-4">
-                            <div className="d-flex justify-content-between">
-                                <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                            <div className="d-flex justify-content-around">
+                                <div className="d-flex align-items-center flex-column">
+                                    <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                    <span>Leicester City</span>
+                                </div>
                                 <div className="d-flex align-items-center">
                                     <div className="text-center">
-                                        <span>11 September</span><br/>
+                                        <span>11 September</span><br />
                                         <span>19.00</span>
                                     </div>
                                 </div>
-                                <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                <div className="d-flex align-items-center flex-column">
+                                    <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                    <span>Leicester City</span>
+                                </div>
                             </div>
                         </div>
                         {/*  */}
                         {/*  */}
                         <div className="card-jadwal-pertandingan px-2 py-4">
-                            <div className="d-flex justify-content-between">
-                                <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                            <div className="d-flex justify-content-around">
+                                <div className="d-flex align-items-center flex-column">
+                                    <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                    <span>Leicester City</span>
+                                </div>
                                 <div className="d-flex align-items-center">
                                     <div className="text-center">
-                                        <span>11 September</span><br/>
+                                        <span>11 September</span><br />
                                         <span>19.00</span>
                                     </div>
                                 </div>
-                                <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                <div className="d-flex align-items-center flex-column">
+                                    <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                    <span>Leicester City</span>
+                                </div>
                             </div>
                         </div>
                         {/*  */}
                         {/*  */}
                         <div className="card-jadwal-pertandingan px-2 py-4">
-                            <div className="d-flex justify-content-between">
-                                <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                            <div className="d-flex justify-content-around">
+                                <div className="d-flex align-items-center flex-column">
+                                    <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                    <span>Leicester City</span>
+                                </div>
                                 <div className="d-flex align-items-center">
                                     <div className="text-center">
-                                        <span>11 September</span><br/>
+                                        <span>11 September</span><br />
                                         <span>19.00</span>
                                     </div>
                                 </div>
-                                <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                <div className="d-flex align-items-center flex-column">
+                                    <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                    <span>Leicester City</span>
+                                </div>
                             </div>
                         </div>
                         {/*  */}
                         {/*  */}
                         <div className="card-jadwal-pertandingan px-2 py-4">
-                            <div className="d-flex justify-content-between">
-                                <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                            <div className="d-flex justify-content-around">
+                                <div className="d-flex align-items-center flex-column">
+                                    <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                    <span>Leicester City</span>
+                                </div>
                                 <div className="d-flex align-items-center">
                                     <div className="text-center">
-                                        <span>11 September</span><br/>
+                                        <span>11 September</span><br />
                                         <span>19.00</span>
                                     </div>
                                 </div>
-                                <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                <div className="d-flex align-items-center flex-column">
+                                    <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                    <span>Leicester City</span>
+                                </div>
                             </div>
                         </div>
                         {/*  */}
@@ -146,60 +170,89 @@ class Klasemen extends Component {
                     <div className=" mx-2 wrapper-hasil">
                         {/*  */}
                         <div className="card-hasil-pertandingan px-2 py-4">
-                            <div className="d-flex justify-content-between">
-                                <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
-                                <div className="d-flex align-items-center">
-                                    <div className="text-center">
-                                        <span>11 September</span><br/>
-                                        <span>19.00</span>
-                                    </div>
-                                </div>
-                                
-                                <div>
+                            <div className="d-flex justify-content-around">
+                                <div className="d-flex align-items-center flex-column">
                                     <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                    <span>Leicester City</span>
+                                    <span>1</span>
+                                </div>
+                                <div className="d-flex align-items-center">
+                                    <div className="text-center">
+                                        <span>11 September</span><br />
+                                        <span>19.00</span>
+                                    </div>
+                                </div>
+                                <div className="d-flex align-items-center flex-column">
+                                    <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                    <span>Leicester City</span>
+                                    <span>0</span>
                                 </div>
                             </div>
                         </div>
                         {/*  */}
                         {/*  */}
                         <div className="card-hasil-pertandingan px-2 py-4">
-                            <div className="d-flex justify-content-between">
-                                <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                            <div className="d-flex justify-content-around">
+                                <div className="d-flex align-items-center flex-column">
+                                    <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                    <span>Leicester City</span>
+                                    <span>1</span>
+                                </div>
                                 <div className="d-flex align-items-center">
                                     <div className="text-center">
-                                        <span>11 September</span><br/>
+                                        <span>11 September</span><br />
                                         <span>19.00</span>
                                     </div>
                                 </div>
-                                <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                <div className="d-flex align-items-center flex-column">
+                                    <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                    <span>Leicester City</span>
+                                    <span>0</span>
+                                </div>
                             </div>
                         </div>
                         {/*  */}
                         {/*  */}
                         <div className="card-hasil-pertandingan px-2 py-4">
-                            <div className="d-flex justify-content-between">
-                                <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                            <div className="d-flex justify-content-around">
+                                <div className="d-flex align-items-center flex-column">
+                                    <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                    <span>Leicester City</span>
+                                    <span>1</span>
+                                </div>
                                 <div className="d-flex align-items-center">
                                     <div className="text-center">
-                                        <span>11 September</span><br/>
+                                        <span>11 September</span><br />
                                         <span>19.00</span>
                                     </div>
                                 </div>
-                                <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                <div className="d-flex align-items-center flex-column">
+                                    <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                    <span>Leicester City</span>
+                                    <span>0</span>
+                                </div>
                             </div>
                         </div>
                         {/*  */}
                         {/*  */}
                         <div className="card-hasil-pertandingan px-2 py-4">
-                            <div className="d-flex justify-content-between">
-                                <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                            <div className="d-flex justify-content-around">
+                                <div className="d-flex align-items-center flex-column">
+                                    <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                    <span>Leicester City</span>
+                                    <span>1</span>
+                                </div>
                                 <div className="d-flex align-items-center">
                                     <div className="text-center">
-                                        <span>11 September</span><br/>
+                                        <span>11 September</span><br />
                                         <span>19.00</span>
                                     </div>
                                 </div>
-                                <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                <div className="d-flex align-items-center flex-column">
+                                    <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8197_small.png" width={60} height={60} />
+                                    <span>Leicester City</span>
+                                    <span className="font-weight-bold">0</span>
+                                </div>
                             </div>
                         </div>
                         {/*  */}
