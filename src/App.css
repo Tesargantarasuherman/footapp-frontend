@@ -70,8 +70,7 @@ body{
   border-radius: 5px;
 
 }
-.wrapper-hasil::-webkit-scrollbar{
-}
+
 .wrapper-hasil .card-hasil-pertandingan{
   min-width: 350px !important;
   height: 150px !important;
