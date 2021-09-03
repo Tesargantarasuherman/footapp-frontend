@@ -37,6 +37,7 @@ class Home extends Component {
     }
     render() {
         return (
+            <>
             <div className="container mt-2">
                 {
                     this.state.turnamen.map(tur => {
@@ -50,6 +51,7 @@ class Home extends Component {
                     })
                 }
             </div>
+            </>
         );
     }
 }
