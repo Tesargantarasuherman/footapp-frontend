@@ -1,6 +1,7 @@
-body{
+body {
   height: 100vh;
 }
+
 .height-100 {
   height: 100vh;
 }
@@ -24,7 +25,12 @@ body{
 .br-20 {
   border-radius: 20px;
 }
-
+.br-50 {
+  border-radius: 50%;
+}
+.text-link{
+  color: rgb(255, 255, 255) !important;
+}
 .bl-20 {
   border-radius: 20px 0px 0px 20px;
 }
@@ -32,87 +38,121 @@ body{
 .overflow-hidden {
   overflow: hidden;
 }
-.bg-green{
+
+.bg-green {
   background-color: #16a085;
 }
-.bg-success{
+
+.bg-success {
   background-color: #16a085 !important;
 }
-.font-white{
+
+.font-white {
   color: white !important;
 }
-.mtable-2{
-  line-height:30px !important;
+
+.mtable-2 {
+  line-height: 30px !important;
 }
-.wrapper-jadwal{
+
+.wrapper-jadwal {
   min-height: 120px;
   display: flex;
   overflow-x: auto;
   border-radius: 5px;
 
 }
-.wrapper-jadwal::-webkit-scrollbar{
-}
-.wrapper-jadwal .card-jadwal-pertandingan{
+
+.wrapper-jadwal::-webkit-scrollbar {}
+
+.wrapper-jadwal .card-jadwal-pertandingan {
   min-width: 350px !important;
   height: 120px !important;
   line-height: 30px !important;
   margin-right: 10px;
 }
-.card-jadwal-pertandingan{
+
+.card-jadwal-pertandingan {
   border: 2px solid #16a085;
   border-radius: 5px;
 }
-.wrapper-hasil{
+
+.wrapper-hasil {
   min-height: 120px;
   display: flex;
   overflow-x: auto;
   border-radius: 5px;
 
 }
-.card-liga{
+
+.card-liga {
   border: 2px solid #16a085;
   border-radius: 5px;
   padding: 10px;
+  position: relative;
+  min-height: 80px;
 }
-.wrapper-hasil .card-hasil-pertandingan{
+
+.lihat-detail-liga {
+  position: absolute;
+  z-index: 99;
+  background-color: #16a085;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  visibility: hidden;
+  color: white;
+}
+
+.card-liga:hover .lihat-detail-liga {
+  visibility: visible;
+}
+
+.wrapper-hasil .card-hasil-pertandingan {
   min-width: 350px !important;
   height: 150px !important;
   line-height: 30px !important;
   margin-right: 10px;
 }
-.card-hasil-pertandingan{
+
+.card-hasil-pertandingan {
   border: 2px solid #16a085;
   border-radius: 5px;
 }
-.btn-outline-green{
+
+.btn-outline-green {
   padding: 10px 20px;
   background: none;
   border-top: none;
   border-left: none;
   border-right: none;
-  color:white;
+  color: white;
   border-bottom: 2px solid #16a085;
 }
-.btn-outline-green:hover{
+
+.btn-outline-green:hover {
   color: #16a085;
   border-bottom: 2px solid white;
   transition: 0.8s;
   cursor: pointer;
 
 }
-.futsal{
+
+.futsal {
   position: absolute;
   font-size: 28px;
   color: white;
   top: 30%;
   left: 20%;
 }
-.form-shadow{
-  box-shadow: 7px 5px 19px 2px rgba(22,160,133,0.52) !important;
-  -webkit-box-shadow: 7px 5px 19px 2px rgba(22,160,133,0.52) !important;
-  -moz-box-shadow: 7px 5px 19px 2px rgba(22,160,133,0.52) !important;
+
+.form-shadow {
+  box-shadow: 7px 5px 19px 2px rgba(22, 160, 133, 0.52) !important;
+  -webkit-box-shadow: 7px 5px 19px 2px rgba(22, 160, 133, 0.52) !important;
+  -moz-box-shadow: 7px 5px 19px 2px rgba(22, 160, 133, 0.52) !important;
 }
+
 @media only screen and (max-width: 600px) {
   body {
     background-color: lightblue;
