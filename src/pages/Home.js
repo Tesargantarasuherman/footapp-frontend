@@ -50,7 +50,22 @@ class Home extends Component {
                         )
                     })
                 }
+                <div className="row">
+                    <div className="col-md-4 ">
+                        <div className="d-flex justify-content-between card-liga">
+                            <img src="https://images.fotmob.com/image_resources/logo/leaguelogo/47.png" className="rounded mx-auto d-block" width={60} height={60}/>
+                            <div className="d-flex align-items-center">
+                            English Premiere League
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-4">
+                    </div>
+                    <div className="col-4">
+                    </div>
+                </div>
             </div>
+
             </>
         );
     }

@@ -70,7 +70,11 @@ body{
   border-radius: 5px;
 
 }
-
+.card-liga{
+  border: 2px solid #16a085;
+  border-radius: 5px;
+  padding: 10px;
+}
 .wrapper-hasil .card-hasil-pertandingan{
   min-width: 350px !important;
   height: 150px !important;
