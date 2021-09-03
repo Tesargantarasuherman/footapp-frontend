@@ -39,18 +39,8 @@ class Home extends Component {
         return (
             <>
             <div className="container mt-2">
-                {
-                    this.state.turnamen.map(tur => {
-                        return (
-                            <div className="card my-2">
-                                <div className="card-body">
-                                    <Link to={`/klasemen/${tur.id}`}>{tur.nama_turnamen}</Link>
-                                </div>
-                            </div>
-                        )
-                    })
-                }
-                <div className="row">
+            <h3 className="text-secondary">Daftar Liga</h3>
+            <div className="row">
                 {
                     this.state.turnamen.map(tur => {
                         return (
