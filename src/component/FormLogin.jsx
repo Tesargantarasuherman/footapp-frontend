@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import { GoogleLogin } from 'react-google-login';
 
+
+const responseGoogle = (response) => {
+  console.log(response);
+}
 class FormLogin extends Component {
     constructor(props) {
         super(props);
@@ -50,6 +55,13 @@ class FormLogin extends Component {
                     </div>
                     <button type="submit" className="btn btn-success btn-block mb-4">Login</button>
                 </form>
+                <GoogleLogin
+                clientId="862537460238-0suciho0vh9nr46070lvui80mlei8u9d.apps.googleusercontent.com"
+                buttonText="Login"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+                cookiePolicy={'single_host_origin'}
+              />
             </div>
         );
     }
