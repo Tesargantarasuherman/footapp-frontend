@@ -13,15 +13,19 @@ class Home extends Component {
         this.state = {
             turnamen: [],
             jadwal: [],
+            turnamen_length:0
         };
     }
     componentDidMount() {
 
         axios.get('http://localhost:8000/turnamen').then(res => {
+            this.setState({
+                turnamen_length:res.data.data.length
+            })
             setTimeout(() => {
                 this.setState({
-                    turnamen: res.data.data
-                })
+                    turnamen: res.data.data,
+                },console.log())
             }, 5000)
         }
         )
@@ -42,6 +46,14 @@ class Home extends Component {
             .catch(error => {
                 console.log(error)
             })
+    }
+    turnamenLength =(length)=>{
+        var lengthTurnamen = [] ;
+
+        for(let i = 1; i <=length;i++ ){
+           lengthTurnamen.push(i)
+        }
+        return lengthTurnamen
     }
     render() {
         return (
@@ -69,7 +81,7 @@ class Home extends Component {
 
                         }
                         {
-                            this.state.turnamen.length == 0  && [1, 2, 3, 4, 5,6].map(tur => {
+                            this.state.turnamen.length == 0  && this.turnamenLength(this.state.turnamen_length).map(tur => {
                                 return (
                                     <SkeletonTurnamen key={tur} />
                                 )
