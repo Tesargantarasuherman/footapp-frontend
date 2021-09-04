@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import { GoogleLogin, GoogleLogout } from 'react-google-login';
 
 class FormRegister extends Component {
     constructor(props) {
@@ -10,13 +11,37 @@ class FormRegister extends Component {
                 name: "",
                 email: "",
                 password: "",
+                api_token: "",
+                provider: "",
+                provider_id: "",
             },
         };
     }
+    responseGoogle = (response) => {
+        this.setState({
+            formRegister: {
+                email: response.profileObj.email,
+                name: response.profileObj.name,
+                provider_id: response.profileObj.googleId,
+                provider: response.tokenObj.idpId,
+                api_token: response.tokenObj.access_token
+            },
+        })
+        axios.post('http://localhost:8000/register', this.state.formRegister).then(res => {
+            console.log(res.data);
+            // sessionStorage.setItem("token", res.data.token);
+            // sessionStorage.setItem("username", res.data.data.name);
+            // sessionStorage.setItem("email", res.data.data.email);
+        }
+        )
+            .catch(error => {
+                console.log(error)
+            })
+    }
     handleSubmitRegister = (e) => {
         e.preventDefault()
-        
-        axios.post('http://localhost:8000/register',this.state.formRegister).then(res=>{
+
+        axios.post('http://localhost:8000/register', this.state.formRegister).then(res => {
             console.log(res.data);
             // sessionStorage.setItem("token", res.data.token);
             // sessionStorage.setItem("username", res.data.data.name);
@@ -53,6 +78,14 @@ class FormRegister extends Component {
                     </div>
                     <button type="submit" className="btn btn-success btn-block mb-4">Register</button>
                 </form>
+                <GoogleLogin className="col-md-12"
+                    clientId="862537460238-0suciho0vh9nr46070lvui80mlei8u9d.apps.googleusercontent.com"
+                    buttonText="Masuk Dengan Google"
+                    onSuccess={this.responseGoogle}
+                    onFailure={this.responseGoogle}
+                    cookiePolicy={'single_host_origin'}
+                    isSignedIn={true}
+                />
             </div>
         );
     }

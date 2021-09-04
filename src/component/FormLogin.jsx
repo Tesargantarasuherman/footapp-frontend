@@ -4,7 +4,7 @@ import { GoogleLogin,GoogleLogout } from 'react-google-login';
 
 
 const responseGoogle = (response) => {
-    console.log(response.profileObj);
+    console.log(response);
 }
 class FormLogin extends Component {
     constructor(props) {
@@ -13,6 +13,8 @@ class FormLogin extends Component {
         this.state = {
             formLogin: {
                 email: "",
+                password: "",
+                password: "",
                 password: "",
             },
         };
