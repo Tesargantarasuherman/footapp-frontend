@@ -6,7 +6,7 @@ class SkeletonTurnamen extends Component {
     render() {
         return (
             <div className="col-md-4 my-2">
-                <div className="d-flex justify-content-between card-liga">
+                <div className="d-flex justify-content-between card-liga-skeleton">
                     <div className="w-25 d-flex align-items-center justify-content-center ">
                         <Skeleton type='avatar' />
                     </div>

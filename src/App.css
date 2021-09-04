@@ -124,6 +124,13 @@ body {
   position: relative;
   min-height: 80px;
 }
+.card-liga-skeleton {
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  position: relative;
+  min-height: 80px;
+}
 
 .lihat-detail-liga {
   position: absolute;
