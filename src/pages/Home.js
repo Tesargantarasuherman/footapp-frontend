@@ -65,7 +65,7 @@ class Home extends Component {
                         {
                             this.state.turnamen && this.state.turnamen.map(tur => {
                                 return (
-                                    <div className="col-md-4 ">
+                                    <div className="col-md-4 my-2">
                                         <div className="d-flex justify-content-between card-liga">
                                             <div className="lihat-detail-liga d-flex align-items-center justify-content-center">
                                                 <Link className="text-link" to={`/klasemen/${tur.id}`}>Lihat Detail</Link>
