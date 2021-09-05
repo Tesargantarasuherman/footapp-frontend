@@ -38,6 +38,9 @@ body {
   height: 100vh;
 }
 
+.height-90 {
+  height: 90vh;
+}
 .height-80 {
   height: 80vh;
 }
@@ -191,7 +194,10 @@ body {
   -webkit-box-shadow: 7px 5px 19px 2px rgba(22, 160, 133, 0.52) !important;
   -moz-box-shadow: 7px 5px 19px 2px rgba(22, 160, 133, 0.52) !important;
 }
-
+/* profile */
+.left-profile{
+  height: 100vh;
+}
 @media only screen and (max-width: 600px) {
   body {
     background-color: lightblue;

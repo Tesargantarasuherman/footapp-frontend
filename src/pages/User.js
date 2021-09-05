@@ -27,10 +27,23 @@ class User extends Component {
     }
     render() {
         return (
-            <div className="container">
-            <div>
-            </div>
-                <img src="" className=""/>
+            <div className="container mt-4">
+                <div className="row height-90">
+                    <div className="col-md-4 bg-success br-20">
+                        <div className=" d-flex justify-content-center  pt-4">
+                            <img src="https://images.unsplash.com/photo-1568044852337-9bcc3378fc3c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80" className="br-50 " width={100} height={100} />
+
+                        </div>
+                        <div className='d-flex justify-content-between mt-4'>
+                            <span>
+                            Nama
+                            </span>
+                            <span>
+                            Tesar Gantara Suherman
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }
