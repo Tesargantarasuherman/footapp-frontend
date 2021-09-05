@@ -4,11 +4,7 @@ import FormRegister from '../component/FormRegister';
 import axios from 'axios'
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 
-const responseGoogle = (response) => {
-    localStorage.setItem("token", response.tokenObj.access_token);
-    localStorage.setItem("username", response.profileObj.name);
-    localStorage.setItem("email", response.profileObj.email);
-}
+
 class Login extends Component {
     constructor(props) {
         super(props);
