@@ -27,8 +27,10 @@ class User extends Component {
     }
     render() {
         return (
+            <div className="container">
             <div>
-                user
+            </div>
+                <img src="" className=""/>
             </div>
         );
     }
