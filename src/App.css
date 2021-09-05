@@ -56,7 +56,9 @@ body {
 .margin-none {
   margin: 0px
 }
-
+.br-10 {
+  border-radius: 10px;
+}
 .br-20 {
   border-radius: 20px;
 }
