@@ -24,11 +24,15 @@ const App = () => {
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon" />
             </button>
-            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div className="collapse navbar-collapse">
               <div className="navbar-nav">
                 <Link className="nav-item nav-link" to='/turnamen'>Turnamen</Link>
               </div>
+              <div className="navbar-nav">
+                <Link className="nav-item nav-link" to='/user'>User</Link>
+              </div>
             </div>
+
 
           </nav>
           {/* LOGIN */}

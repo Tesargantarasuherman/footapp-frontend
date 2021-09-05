@@ -38,7 +38,7 @@ class Login extends Component {
         })
     }
 
-    componentDidMount(){
+    componentDidMount() {
         let token = localStorage.getItem("token");
         console.log(token)
     }
@@ -52,14 +52,14 @@ class Login extends Component {
                 provider: response.tokenObj.idpId,
                 api_token: response.tokenObj.access_token
             },
-        },()=>{
+        }, () => {
             localStorage.setItem("token", response.tokenObj.access_token);
             localStorage.setItem("username", response.profileObj.name);
             localStorage.setItem("email", response.profileObj.email);
         })
         axios.post('http://localhost:8000/register', this.state.formRegister).then(res => {
             console.log(res.data);
-  
+
         }
         )
             .catch(error => {
@@ -84,7 +84,7 @@ class Login extends Component {
                                 <button type="submit" className="btn-outline-green" onClick={this.activeRegister}>Register</button>
 
                             </div>
-                            <div className="d-flex justify-content-center">
+                            <div className="d-flex justify-content-center ">
                                 {/* Form */}
                                 {
                                     this.state.formActive ? (
