@@ -53,6 +53,7 @@ class Login extends Component {
                 api_token: response.tokenObj.access_token
             },
         }, () => {
+            localStorage.setItem("id", response.profileObj.googleId);
             localStorage.setItem("token", response.tokenObj.access_token);
             localStorage.setItem("username", response.profileObj.name);
             localStorage.setItem("email", response.profileObj.email);

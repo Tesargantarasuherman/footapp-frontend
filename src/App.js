@@ -11,6 +11,7 @@ import FormLogin from './component/FormLogin';
 import FormRegister from './component/FormRegister';
 import Login from './pages/Login';
 import Klasemen from './pages/Klasemen';
+import User from './pages/User';
 const App = () => {
 
 
@@ -45,6 +46,7 @@ const App = () => {
               <Route path="/" exact component={Home} />
               <Route path="/sign" exact component={Login} />
               <Route path="/klasemen/:id" exact component={Klasemen} />
+              <Route path="/user" exact component={User} />
             </Switch>
           </Switch>
         </div>

@@ -22,6 +22,7 @@ class FormLogin extends Component {
 
         axios.post('http://localhost:8000/login', this.state.formLogin).then(res => {
             console.log(res.data);
+            localStorage.setItem("id", res.data.data.user.id);
             localStorage.setItem("token", res.data.data.api_token);
             localStorage.setItem("username", res.data.data.user.name);
             localStorage.setItem("email", res.data.data.user.email);
