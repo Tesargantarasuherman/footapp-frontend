@@ -1,13 +1,28 @@
 import React, { Component } from 'react';
 import FormLogin from '../component/FormLogin';
 import FormRegister from '../component/FormRegister';
+import axios from 'axios'
+import { GoogleLogin, GoogleLogout } from 'react-google-login';
 
+const responseGoogle = (response) => {
+    localStorage.setItem("token", response.tokenObj.access_token);
+    localStorage.setItem("username", response.profileObj.name);
+    localStorage.setItem("email", response.profileObj.email);
+}
 class Login extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            formActive:false
+            formActive: false,
+            formRegister: {
+                name: "",
+                email: "",
+                password: "",
+                api_token: "",
+                provider: "",
+                provider_id: "",
+            },
         };
     }
 
@@ -22,6 +37,35 @@ class Login extends Component {
             formActive: false,
         })
     }
+
+    componentDidMount(){
+        let token = localStorage.getItem("token");
+        console.log(token)
+    }
+
+    responseGoogle = (response) => {
+        this.setState({
+            formRegister: {
+                email: response.profileObj.email,
+                name: response.profileObj.name,
+                provider_id: response.profileObj.googleId,
+                provider: response.tokenObj.idpId,
+                api_token: response.tokenObj.access_token
+            },
+        },()=>{
+            localStorage.setItem("token", response.tokenObj.access_token);
+            localStorage.setItem("username", response.profileObj.name);
+            localStorage.setItem("email", response.profileObj.email);
+        })
+        axios.post('http://localhost:8000/register', this.state.formRegister).then(res => {
+            console.log(res.data);
+  
+        }
+        )
+            .catch(error => {
+                console.log(error)
+            })
+    }
     render() {
         return (
             <div class="container top-center">
@@ -29,7 +73,7 @@ class Login extends Component {
                     <div class="row no-gutters">
                         <div class="col-sm mobile-hide" >
                             <div className="futsal">
-                                Ayo Futsalin,<br/>
+                                Ayo Futsalin,<br />
                                 Kuy
                             </div>
                             <img src="https://images.unsplash.com/photo-1511886929837-354d827aae26?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80" className="img-fluid bl-20" alt="Responsive image" />
@@ -38,6 +82,7 @@ class Login extends Component {
                             <div class="my-4  d-flex align-items-center justify-content-center">
                                 <button type="submit" className="btn-outline-green mr-2" onClick={this.activeLogin}>Login</button>
                                 <button type="submit" className="btn-outline-green" onClick={this.activeRegister}>Register</button>
+
                             </div>
                             <div className="d-flex justify-content-center">
                                 {/* Form */}
@@ -52,6 +97,16 @@ class Login extends Component {
                                         </>
                                     )
                                 }
+                            </div>
+                            <div className="d-flex align-items-center justify-content-center">
+                                <GoogleLogin
+                                    clientId="862537460238-0suciho0vh9nr46070lvui80mlei8u9d.apps.googleusercontent.com"
+                                    buttonText="Masuk Dengan Google"
+                                    onSuccess={this.responseGoogle}
+                                    onFailure={this.responseGoogle}
+                                    cookiePolicy={'single_host_origin'}
+                                    isSignedIn={true}
+                                />
                             </div>
                         </div>
                     </div>
