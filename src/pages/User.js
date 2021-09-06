@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import Skeleton from '../component/Skeleton';
 import SkeletonTurnamen from '../component/SkeletonTurnamen';
 
 class User extends Component {
@@ -22,8 +23,10 @@ class User extends Component {
                 'Authorization': `Authorization ${localStorage.getItem("token")}`
             }
         }).then(res => {
+
             console.log('res', res)
-            this.setState({ dataUser: res.data.data }, () => console.log('val', this.state.dataUser))
+            setTimeout(() => { this.setState({ dataUser: res.data.data }, () => console.log('val', this.state.dataUser)) }, 5000)
+
         })
         //     }
     }
@@ -32,27 +35,31 @@ class User extends Component {
             <div className="container mt-4">
                 <div className="body height-90  d-flex justify-content-between ">
                     <div className="w-25 bg-success br-10">
-                        <div className=" d-flex justify-content-center  pt-4">
-                            <img src="https://images.unsplash.com/photo-1568044852337-9bcc3378fc3c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80" className="br-50 " width={100} height={100} />
-                        </div>
-                        <div className='d-flex justify-content-between mt-4 mx-2'>
-                            <span className="text-light">
-                                Nama
-                            </span>
-                            <span className="text-light">
+                        <div className=" d-flex justify-content-center  mt-4">
                             {
-                                this.state.dataUser.length == 0 ? (<SkeletonTurnamen />): 
-                                (this.state.dataUser.name)
+                                this.state.dataUser.length == 0 ? (
+                                    <Skeleton type='profile' />
+                                )
+                                    : (
+                                        <img src="https://images.unsplash.com/photo-1568044852337-9bcc3378fc3c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80" className="br-50 " width={100} height={100} />
+
+                                    )
                             }
-                            </span>
                         </div>
-                        <div className='d-flex justify-content-between mt-4 mx-2'>
-                            <span className="text-light">
-                                Email
-                            </span>
-                            <span className="text-light">
-                                {this.state.dataUser.email}
-                            </span>
+                        <div className='d-flex justify-content-center text-light mt-4 mx-2'>
+                            {
+                                this.state.dataUser.length == 0 ? (<Skeleton type='title' />
+                                ) :
+                                    (this.state.dataUser.name)
+                            }
+                        </div>
+                        <div className='d-flex justify-content-center text-light mx-2'>
+                            {
+                                this.state.dataUser.length == 0 ? (<Skeleton type='title' />
+                                ) :
+                                    (this.state.dataUser.email)
+                            }
+
                         </div>
                     </div>
                     <div className="w-75 bg-success br-20 ml-4">

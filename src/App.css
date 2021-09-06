@@ -21,6 +21,11 @@ body {
   height: 50px;
   border-radius: 50%;
 }
+.skeleton.profile{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
 .skeleton.thumbnail{
   width: 100px;
   height: 100px;
