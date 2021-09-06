@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import SkeletonTurnamen from '../component/SkeletonTurnamen';
 
 class User extends Component {
     constructor(props) {
@@ -10,6 +11,7 @@ class User extends Component {
         };
     }
     componentDidMount() {
+        console.log('val', this.state.dataUser)
         let id = localStorage.getItem('id')
         axios.get(`http://localhost:8000/user/${id}`, {
             headers: {
@@ -21,7 +23,7 @@ class User extends Component {
             }
         }).then(res => {
             console.log('res', res)
-            // this.setState({ myClass: res.data.data }, () => console.log('val', this.state.myClass))
+            this.setState({ dataUser: res.data.data }, () => console.log('val', this.state.dataUser))
         })
         //     }
     }
@@ -38,7 +40,18 @@ class User extends Component {
                                 Nama
                             </span>
                             <span className="text-light">
-                                Tesar Gantara Suherman
+                            {
+                                this.state.dataUser.length == 0 ? (<SkeletonTurnamen />): 
+                                (this.state.dataUser.name)
+                            }
+                            </span>
+                        </div>
+                        <div className='d-flex justify-content-between mt-4 mx-2'>
+                            <span className="text-light">
+                                Email
+                            </span>
+                            <span className="text-light">
+                                {this.state.dataUser.email}
                             </span>
                         </div>
                     </div>
