@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,700;1,100;1,300&display=swap');
 body {
   height: 100vh;
 }
@@ -207,6 +208,35 @@ body {
 /* profile */
 .left-profile{
   height: 100vh;
+}
+.body-artikel{
+  position: relative;
+}
+/* artikel */
+.img-jumbotron-artikel{
+  overflow: hidden;
+
+}
+.img-jumbotron-artikel img{
+  border-radius: 20px !important;
+  height: 500px;
+  width: 100%
+
+}
+.judul-artikel-utama{
+  font-size: 24px;
+  font-weight: bold;
+  text-align: justify;
+}
+.body-utama-artikel{
+  margin-top: 40px;
+}
+.tanggal-artikel-utama{
+  font-size: 16px;
+  font-style: italic;
+}
+.isi-artikel-utama{
+  font-size: 18px;
 }
 @media only screen and (max-width: 600px) {
   body {
