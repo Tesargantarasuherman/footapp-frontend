@@ -5,7 +5,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom";
 import Home from './pages/Home';
 import FormLogin from './component/FormLogin';
@@ -14,8 +15,10 @@ import Login from './pages/Login';
 import Klasemen from './pages/Klasemen';
 import User from './pages/User';
 import axios from 'axios';
+import { withRouter } from 'react-router'
+import { GoogleLogout } from 'react-google-login';
 
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
 
@@ -24,13 +27,20 @@ class App extends Component {
   logout = () => {
     let id = localStorage.getItem('id')
     axios.post(`http://localhost:8000/logout/${id}`).then(res => {
-      console.log(res.data);
-    })
+      localStorage.removeItem("id");
+      localStorage.removeItem("token");
+      localStorage.removeItem("username");
+      localStorage.removeItem("email");
+      <Redirect push to="/sign" />
+    },
+    )
+
   }
 
 
   render() {
-
+    let id = localStorage.getItem('id')
+    console.log('id', id)
     return (
       <div className="App">
         <Router>
@@ -59,8 +69,13 @@ class App extends Component {
             renders the first one that matches the current URL. */}
             <Switch>
               <Switch>
+                <Route exact path="/user"  >
+                  {id == null ? <Redirect push to="/sign" /> : <User />}
+                </Route>
+                <Route exact path="/sign"  >
+                  {id !== null ? <Redirect push to="/" /> : <Login />}
+                </Route>
                 <Route path="/" exact component={Home} />
-                <Route path="/sign" exact component={Login} />
                 <Route path="/klasemen/:id" exact component={Klasemen} />
                 <Route path="/user" exact component={User} />
               </Switch>
@@ -72,4 +87,3 @@ class App extends Component {
   }
 }
 
-export default App;
