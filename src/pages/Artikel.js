@@ -6,7 +6,7 @@ class Artikel extends Component {
             <div className="container body-utama-artikel">
                 <div className="row body-artikel">
                     <div className="col-md-8 img-jumbotron-artikel">
-                        <img src="https://images.unsplash.com/photo-1593642634367-d91a135587b5?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
+                        <img src="https://images.unsplash.com/photo-1624880357913-a8539238245b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
                     </div>
                     <div className="col-md-4">
                         <div className="tanggal-artikel-utama">
@@ -23,7 +23,7 @@ class Artikel extends Component {
                                     <strong>Tesar Gantara Suherman</strong>
                                 </div>
                                 <div>
-                                    Programmer
+                                    Admin
                                 </div>
                             </div>
                         </div>
@@ -33,7 +33,7 @@ class Artikel extends Component {
                     <div className="row">
                         <div className="col-md-6">
                             <div className="card">
-                                <img className="card-img-top" src="https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" height="200" alt="Card image cap" />
+                                <img className="card-img-top" src="https://images.unsplash.com/photo-1459865264687-595d652de67e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" height="200" alt="Card image cap" />
                                 <div className="card-body">
                                     <p class="font-italic card-text">Bandung, 07 September 2021</p>
                                     <h5 className="card-title font-weight-bold">Some quick example text to build on the card title and make up the bulk of the card's content.</h5>
@@ -43,7 +43,7 @@ class Artikel extends Component {
                         </div>
                         <div className="col-md-6">
                             <div className="card">
-                                <img className="card-img-top" src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80" height="200" alt="Card image cap" />
+                                <img className="card-img-top" src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1156&q=80" height="200" alt="Card image cap" />
                                 <div className="card-body">
                                     <p class="font-italic card-text">Bandung, 07 September 2021</p>
                                     <h5 className="card-title font-weight-bold">Some quick example text to build on the card title and make up the bulk of the card's content.</h5>

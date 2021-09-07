@@ -54,9 +54,6 @@ export default class App extends Component {
                 </button>
                 <div className="collapse navbar-collapse">
                   <div className="navbar-nav">
-                    <Link className="nav-item nav-link" to='/turnamen'>Turnamen</Link>
-                  </div>
-                  <div className="navbar-nav">
                     <Link className="nav-item nav-link" to='/user'>User</Link>
                   </div>
                   <div className="navbar-nav">
