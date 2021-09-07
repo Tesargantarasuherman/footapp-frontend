@@ -106,7 +106,14 @@ body {
 
 }
 
-
+.img-detail-artikel{
+  width: 100%;
+  overflow: hidden;
+}
+.img-detail-artikel img{
+  width: 100%;
+  border-radius: 10px;
+}
 .wrapper-jadwal .card-jadwal-pertandingan {
   min-width: 350px !important;
   height: 120px !important;

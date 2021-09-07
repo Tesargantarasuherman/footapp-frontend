@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Artikel extends Component {
     render() {
@@ -30,7 +31,7 @@ class Artikel extends Component {
                     </div>
                 </div>
                 <section className="artikel">
-                    <div className="row">
+                    <div className="row mb-4">
                         <div className="col-md-6">
                             <div className="card">
                                 <img className="card-img-top" src="https://images.unsplash.com/photo-1459865264687-595d652de67e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" height="200" alt="Card image cap" />
@@ -48,9 +49,31 @@ class Artikel extends Component {
                                     <p class="font-italic card-text">Bandung, 07 September 2021</p>
                                     <h5 className="card-title font-weight-bold">Some quick example text to build on the card title and make up the bulk of the card's content.</h5>
                                     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <Link class="btn btn-info float-right" to="/artikel/1">Selengkapnya</Link>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div className="pagination d-flex justify-content-center">
+                        <nav aria-label="">
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                 </section>
             </div>
