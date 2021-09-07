@@ -64,7 +64,7 @@ export default class App extends Component {
                   </div>
                 </div>
                 <span class="navbar-text">
-                {id != null ?
+                {id !== null ?
                   <button className="btn btn-success text-light btn-sm" onClick={this.logout}>Logout</button>
                   :
                   <Link className="btn btn-success text-light btn-sm" to="/sign">Login</Link>

@@ -56,6 +56,7 @@ class Login extends Component {
         })
         axios.post('http://localhost:8000/register', this.state.formRegister).then(res => {
             console.log(res.data);
+            window.location.reload();
 
         }
         )
