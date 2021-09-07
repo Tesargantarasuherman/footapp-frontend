@@ -17,6 +17,7 @@ import User from './pages/User';
 import axios from 'axios';
 import { withRouter } from 'react-router'
 import { GoogleLogout } from 'react-google-login';
+import Artikel from './pages/Artikel';
 
 export default class App extends Component {
   constructor(props) {
@@ -45,22 +46,27 @@ export default class App extends Component {
       <div className="App">
         <Router>
           <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-green d-flex justify-content-between">
-              <Link className="navbar-brand font-white" to="/" >Footsal</Link>
-              <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon" />
-              </button>
-              <div className="collapse navbar-collapse">
-                <div className="navbar-nav">
-                  <Link className="nav-item nav-link" to='/turnamen'>Turnamen</Link>
+            <nav className="navbar navbar-expand-lg navbar-light bg-green d-flex justify-content-between ">
+              <div className="container">
+                <Link className="navbar-brand font-white" to="/" >Footsal</Link>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span className="navbar-toggler-icon" />
+                </button>
+                <div className="collapse navbar-collapse">
+                  <div className="navbar-nav">
+                    <Link className="nav-item nav-link" to='/turnamen'>Turnamen</Link>
+                  </div>
+                  <div className="navbar-nav">
+                    <Link className="nav-item nav-link" to='/user'>User</Link>
+                  </div>
+                  <div className="navbar-nav">
+                    <Link className="nav-item nav-link" to='/artikel'>Artikel</Link>
+                  </div>
                 </div>
-                <div className="navbar-nav">
-                  <Link className="nav-item nav-link" to='/user'>User</Link>
-                </div>
+                <span class="navbar-text">
+                  <button className="btn btn-success text-light btn-sm" onClick={this.logout}>Logout</button>
+                </span>
               </div>
-              <span class="navbar-text">
-                <button className="btn btn-success text-light btn-sm" onClick={this.logout}>Logout</button>
-              </span>
             </nav>
             {/* LOGIN */}
 
@@ -77,7 +83,7 @@ export default class App extends Component {
                 </Route>
                 <Route path="/" exact component={Home} />
                 <Route path="/klasemen/:id" exact component={Klasemen} />
-                <Route path="/user" exact component={User} />
+                <Route path="/artikel" exact component={Artikel} />
               </Switch>
             </Switch>
           </div>

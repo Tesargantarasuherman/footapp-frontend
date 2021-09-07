@@ -105,7 +105,6 @@ body {
 
 }
 
-.wrapper-jadwal::-webkit-scrollbar {}
 
 .wrapper-jadwal .card-jadwal-pertandingan {
   min-width: 350px !important;
@@ -166,6 +165,10 @@ body {
 }
 
 .card-hasil-pertandingan {
+  border: 2px solid #16a085;
+  border-radius: 5px;
+}
+.border-utama{
   border: 2px solid #16a085;
   border-radius: 5px;
 }
