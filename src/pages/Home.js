@@ -19,13 +19,14 @@ class Home extends Component {
     componentDidMount() {
 
         axios.get('http://localhost:8000/turnamen').then(res => {
+            console.log(res)
             this.setState({
-                turnamen_length:res.data.data.length
+                turnamen_length:res.data.data.data.length
             })
             setTimeout(() => {
                 this.setState({
-                    turnamen: res.data.data,
-                },console.log())
+                    turnamen: res.data.data.data,
+                },)
             }, 5000)
         }
         )
