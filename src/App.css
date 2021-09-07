@@ -211,15 +211,19 @@ body {
 }
 .body-artikel{
   position: relative;
+  height: 450px;
 }
 /* artikel */
 .img-jumbotron-artikel{
   overflow: hidden;
 
 }
+section.artikel{
+  margin: 50px 0px;
+}
 .img-jumbotron-artikel img{
   border-radius: 20px !important;
-  height: 500px;
+  height: 450px;
   width: 100%
 
 }
