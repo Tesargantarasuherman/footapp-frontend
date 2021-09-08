@@ -23,12 +23,14 @@ class DetailArtikel extends Component {
     getKomentar = () => {
         let id = this.props.match.params.id
         axios.get(`http://localhost:8000/komentar/${id}`).then(res => {
-            console.log(res)
             this.setState({
                 data_komentar: res.data.data
-            }, () => console.log('komentar', this.state.data_komentar))
+            })
         })
 
+    }
+    componentDidUpdate(){
+        this.getKomentar()
     }
     handleFormChangeKomentar = (event) => {
         let id = this.props.match.params.id
@@ -39,14 +41,12 @@ class DetailArtikel extends Component {
         formKomentarNew['id_user'] = localStorage.getItem('id');
         this.setState({
             formKomentar: formKomentarNew,
-        }, () => console.log(formKomentarNew))
+        })
     }
     handleSubmitKomentar = (e) => {
         e.preventDefault()
         axios.post('http://localhost:8000/komentar/tambah-komentar', this.state.formKomentar).then(res => {
-            console.log(res.data,this.state.formKomentar);
-        }
-        )
+        })
             .catch(error => {
                 console.log(error)
             })
@@ -54,10 +54,9 @@ class DetailArtikel extends Component {
     componentDidMount() {
         let id = this.props.match.params.id
         axios.get(`http://localhost:8000/artikel/${id}`).then(res => {
-            console.log(res)
             this.setState({
                 data_blog: res.data.data.data[0]
-            }, () => console.log('tanggal', this.state.data_blog))
+            })
         })
         this.getKomentar()
     }
