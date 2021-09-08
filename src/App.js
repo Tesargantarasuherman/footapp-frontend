@@ -33,7 +33,8 @@ export default class App extends Component {
       localStorage.removeItem("token");
       localStorage.removeItem("username");
       localStorage.removeItem("email");
-      <Redirect push to="/sign" />
+      window.location.reload();
+
     },
     )
 

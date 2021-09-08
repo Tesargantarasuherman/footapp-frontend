@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import ReactPaginate from 'react-paginate';
 
 class DetailArtikel extends Component {
     constructor(props) {
@@ -7,14 +8,18 @@ class DetailArtikel extends Component {
         this.state = {
             aktif_komentar: false,
             data_blog: [],
-            data_komentar: [],
             formKomentar: {
                 id_artikel: "",
                 id_user: "",
                 isi: "",
             },
+            offset: 0,
+            data: [],
+            perPage: 3,
+            currentPage: 0,
         };
     }
+
     aktifKomentar = (input) => {
         this.setState({
             aktif_komentar: input
@@ -23,13 +28,49 @@ class DetailArtikel extends Component {
     getKomentar = () => {
         let id = this.props.match.params.id
         axios.get(`http://localhost:8000/komentar/${id}`).then(res => {
-            this.setState({
-                data_komentar: res.data.data
+            const data = res.data.data;
+            console.log(data)
+            const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
+            const postData = slice.map((pd) => {
+
+                return (
+                    <React.Fragment>
+                    <div className="d-flex justify-content-between align-items-center my-2">
+                    <div className="w-25">
+                        <img src="https://images.unsplash.com/photo-1575739967915-f06fdc268a5b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=637&q=80" width="50" height="50" className="br-50 rounded mx-auto d-block" />
+                    </div>
+                    <div className="w-75">
+                        <h5 className="card-title font-weight-bold">{pd.user}</h5>
+
+                        <p className="card-text w-75">{pd.isi}</p>
+                        <p className="font-italic">4 Menit yang lalu</p>
+                    </div>
+                </div>
+                    </React.Fragment>
+                )
             })
-        })
+
+            this.setState({
+                pageCount: Math.ceil(data.length / this.state.perPage),
+
+                postData
+            })
+        });
 
     }
-    componentDidUpdate(){
+    handlePageClick = (e) => {
+        const selectedPage = e.selected;
+        const offset = selectedPage * this.state.perPage;
+
+        this.setState({
+            currentPage: selectedPage,
+            offset: offset
+        }, () => {
+            this.getKomentar()
+        });
+
+    };
+    componentDidUpdate() {
         this.getKomentar()
     }
     handleFormChangeKomentar = (event) => {
@@ -45,7 +86,20 @@ class DetailArtikel extends Component {
     }
     handleSubmitKomentar = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:8000/komentar/tambah-komentar', this.state.formKomentar).then(res => {
+        axios.post('http://localhost:8000/komentar/tambah-komentar', this.state.formKomentar, {
+            headers: {
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+                // 'Access-Control-Allow-Headers': 'X-Requested-With,content-type',
+                // 'Access-Control-Allow-Origin': 'true',
+                // 'Access-Control-Allow-Credentials': 'true',
+                'Authorization': `Authorization ${localStorage.getItem("token")}`
+            }
+        }).then(res => {
+            this.setState({
+                formKomentar:{
+                    isi: "",
+                },
+            })
         })
             .catch(error => {
                 console.log(error)
@@ -81,7 +135,7 @@ class DetailArtikel extends Component {
                             <div className="w-75">
                                 <form onSubmit={this.handleSubmitKomentar}>
                                     <div className="form-group">
-                                        <textarea className="form-control" rows={2} placeholder="Masukkan Komentar" onFocus={() => this.aktifKomentar(true)} name="isi"
+                                        <textarea className="form-control" rows={2} placeholder="Masukkan Komentar"  value={this.state.formKomentar.isi} onFocus={() => this.aktifKomentar(true)} name="isi"
                                             onChange={this.handleFormChangeKomentar} />
                                     </div>
                                     {
@@ -99,23 +153,23 @@ class DetailArtikel extends Component {
                                 </form>
                             </div>
                         </div>
-                        {
-                            this.state.data_komentar.map(komentar => {
-                                return (
-                                    <div className="d-flex justify-content-between align-items-center my-2">
-                                        <div className="w-25">
-                                            <img src="https://images.unsplash.com/photo-1575739967915-f06fdc268a5b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=637&q=80" width="50" height="50" className="br-50 rounded mx-auto d-block" />
-                                        </div>
-                                        <div className="w-75">
-                                            <h5 className="card-title font-weight-bold">{komentar.user}</h5>
+                        {this.state.postData}
 
-                                            <p className="card-text w-75">{komentar.isi}</p>
-                                            <p className="font-italic">4 Menit yang lalu</p>
-                                        </div>
-                                    </div>
-                                )
-                            })
-                        }
+                        <div className="pagination d-flex justify-content-center">
+                            <ReactPaginate
+                                previousLabel={"prev"}
+                                nextLabel={"next"}
+                                breakLabel={"..."}
+                                breakClassName={"break-me"}
+                                pageCount={this.state.pageCount}
+                                marginPagesDisplayed={2}
+                                pageRangeDisplayed={5}
+                                onPageChange={this.handlePageClick}
+                                containerClassName={"pagination"}
+                                subContainerClassName={"pages pagination"}
+                                activeClassName={"active"} />
+                        </div>
+
 
                     </div>
                 </div>
