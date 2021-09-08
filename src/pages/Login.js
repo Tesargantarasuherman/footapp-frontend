@@ -28,6 +28,7 @@ class Login extends Component {
             formActive: true,
         })
     }
+    
     activeLogin = () => {
         this.setState({
             formActive: false,

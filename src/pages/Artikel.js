@@ -18,8 +18,9 @@ class Artikel extends Component {
         axios.get(`http://localhost:8000/artikel`).then(res => {
             const data = res.data.data;
             const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
-            const postData = slice.map((pd) => {
-                if (pd.id_kategori == 0) {
+            const postData = slice.map((pd,index,row) => {
+                console.log(row)
+                if (index === 0) {
                     return (
                         <React.Fragment>
                             <div className="row body-artikel">
@@ -59,7 +60,8 @@ class Artikel extends Component {
                                     <div className="card-body">
                                         <p class="font-italic card-text">{pd.created_at}</p>
                                         <h5 className="card-title font-weight-bold">{pd.judul}</h5>
-                                        <p className="card-text">{pd.deskripsi.substring(0, 500)}</p>
+                                        <p className="card-text">{pd.deskripsi.substring(0, 200)}</p>
+                                        <Link className="btn btn-info" to={`/artikel/${pd.id}`}>Selengkapnya</Link>
                                     </div>
                                 </div>
                             </div>

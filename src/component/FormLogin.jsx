@@ -12,8 +12,6 @@ class FormLogin extends Component {
             formLogin: {
                 email: "",
                 password: "",
-                password: "",
-                password: "",
             },
         };
     }
