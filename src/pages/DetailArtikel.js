@@ -29,7 +29,6 @@ class DetailArtikel extends Component {
         let id = this.props.match.params.id
         axios.get(`http://localhost:8000/komentar/${id}`).then(res => {
             const data = res.data.data;
-            console.log(data)
             const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
             const postData = slice.map((pd) => {
 
