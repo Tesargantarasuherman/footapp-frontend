@@ -22,11 +22,15 @@ class DetailArtikel extends Component {
     }
 
     notify = () => toast.success('Komentar Berhasil Ditambahkan');
+    notifyError = (mes) => toast.error(mes);
 
 
-    aktifKomentar = (input) => {
+    aktifKomentar = (input) => {gi
         this.setState({
-            aktif_komentar: input
+            aktif_komentar: input,
+            formKomentar: {
+                isi: "",
+            },
         })
     }
 
@@ -39,7 +43,7 @@ class DetailArtikel extends Component {
                 return (
 
                     <React.Fragment>
-                        <div className="d-flex justify-content-between align-items-center my-2">
+                        <div className="d-flex justify-content-between align-items-center my-2 border-bottom w-75 float-right">
                             <div className="w-25 ">
                                 <img src="https://images.unsplash.com/photo-1575739967915-f06fdc268a5b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=637&q=80" width="50" height="50" className="br-50 float-right mx-4" />
                             </div>
@@ -92,7 +96,11 @@ class DetailArtikel extends Component {
     }
     handleSubmitKomentar = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:8000/komentar/tambah-komentar', this.state.formKomentar, {
+        if(this.state.formKomentar.isi ==""){
+            this.notifyError('Jangan dikosongkan')
+        }
+        else{
+            axios.post('http://localhost:8000/komentar/tambah-komentar', this.state.formKomentar, {
             headers: {
                 // 'Content-Type': 'application/x-www-form-urlencoded',
                 // 'Access-Control-Allow-Headers': 'X-Requested-With,content-type',
@@ -110,6 +118,9 @@ class DetailArtikel extends Component {
             .catch(error => {
                 console.log(error)
             })
+
+        }
+        
     }
     componentDidMount() {
         let id = this.props.match.params.id
@@ -166,7 +177,7 @@ class DetailArtikel extends Component {
                         </div>
                         {this.state.postData}
 
-                        <div className="pagination d-flex justify-content-center">
+                        <div className="pagination d-flex justify-content-center w-100">
                             <ReactPaginate
                                 previousLabel={"prev"}
                                 nextLabel={"next"}
