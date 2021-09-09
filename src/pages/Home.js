@@ -6,6 +6,8 @@ import {
 } from "react-router-dom";
 import Skeleton from '../component/Skeleton';
 import SkeletonTurnamen from '../component/SkeletonTurnamen';
+import ContentLoader from "react-content-loader"
+
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -84,7 +86,19 @@ class Home extends Component {
                         {
                             this.state.turnamen.length == 0  && this.turnamenLength(this.state.turnamen_length).map(tur => {
                                 return (
-                                    <SkeletonTurnamen key={tur} />
+                                    <ContentLoader 
+                                    speed={2}
+                                    width={400}
+                                    height={160}
+                                    viewBox="0 0 400 160"
+                                    backgroundColor="#f3f3f3"
+                                    foregroundColor="#ecebeb"
+                                  >
+                                    <rect x="94" y="30" rx="3" ry="3" width="166" height="25" /> 
+                                    <rect x="-171" y="-25" rx="3" ry="3" width="410" height="6" /> 
+                                    <rect x="16" y="180" rx="3" ry="3" width="380" height="6" /> 
+                                    <circle cx="52" cy="43" r="28" />
+                                  </ContentLoader>
                                 )
                             })
                         }

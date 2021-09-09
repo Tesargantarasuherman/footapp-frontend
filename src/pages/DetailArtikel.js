@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import ReactPaginate from 'react-paginate';
+import toast, { Toaster } from 'react-hot-toast';
 
 class DetailArtikel extends Component {
     constructor(props) {
@@ -20,31 +21,37 @@ class DetailArtikel extends Component {
         };
     }
 
+    notify = () => toast.success('Komentar Berhasil Ditambahkan');
+
+
     aktifKomentar = (input) => {
         this.setState({
             aktif_komentar: input
         })
     }
+
     getKomentar = () => {
         let id = this.props.match.params.id
         axios.get(`http://localhost:8000/komentar/${id}`).then(res => {
             const data = res.data.data;
             const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
             const postData = slice.map((pd) => {
-
                 return (
-                    <React.Fragment>
-                    <div className="d-flex justify-content-between align-items-center my-2">
-                    <div className="w-25">
-                        <img src="https://images.unsplash.com/photo-1575739967915-f06fdc268a5b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=637&q=80" width="50" height="50" className="br-50 rounded mx-auto d-block" />
-                    </div>
-                    <div className="w-75">
-                        <h5 className="card-title font-weight-bold">{pd.user}</h5>
 
-                        <p className="card-text w-75">{pd.isi}</p>
-                        <p className="font-italic">4 Menit yang lalu</p>
-                    </div>
-                </div>
+                    <React.Fragment>
+                        <div className="d-flex justify-content-between align-items-center my-2">
+                            <div className="w-25 ">
+                                <img src="https://images.unsplash.com/photo-1575739967915-f06fdc268a5b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=637&q=80" width="50" height="50" className="br-50 float-right mx-4" />
+                            </div>
+                            <div className="w-75">
+                                <h5 className="card-title font-weight-bold">{pd.user}</h5>
+                                <div className="d-flex justify-content-between">
+                                    <p className="card-text w-75">{pd.isi}</p>
+
+                                    <p className="font-italic">4 Menit yang lalu</p>
+                                </div>
+                            </div>
+                        </div>
                     </React.Fragment>
                 )
             })
@@ -95,10 +102,10 @@ class DetailArtikel extends Component {
             }
         }).then(res => {
             this.setState({
-                formKomentar:{
+                formKomentar: {
                     isi: "",
                 },
-            })
+            }, () => this.notify())
         })
             .catch(error => {
                 console.log(error)
@@ -116,6 +123,10 @@ class DetailArtikel extends Component {
     render() {
         return (
             <div className="container">
+                <Toaster
+                    position="bottom-center"
+                    reverseOrder={false}
+                />
                 <div className="row">
                     <div className="col-md-12 img-detail-artikel my-4">
                         <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1156&q=80" />
@@ -126,15 +137,16 @@ class DetailArtikel extends Component {
                         <h5 className="card-title font-weight-bold">{(this.state.data_blog.judul)}</h5>
                         <p className="card-text">{(this.state.data_blog.deskripsi)}</p>
                     </div>
-                    <div className="col-md-12">
-                        <div className="d-flex justify-content-between align-items-center">
+                    
+                    <div className="col-md-12 mt-4">
+                        <div className="d-flex justify-content-between align-items-start">
                             <div className="w-25">
-                                <img src="https://images.unsplash.com/photo-1575739967915-f06fdc268a5b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=637&q=80" width="50" height="50" className="br-50 rounded mx-auto d-block" />
+                                <img src="https://images.unsplash.com/photo-1575739967915-f06fdc268a5b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=637&q=80" width="50" height="50" className="br-50 float-right mx-4" />
                             </div>
                             <div className="w-75">
                                 <form onSubmit={this.handleSubmitKomentar}>
                                     <div className="form-group">
-                                        <textarea className="form-control" rows={2} placeholder="Masukkan Komentar"  value={this.state.formKomentar.isi} onFocus={() => this.aktifKomentar(true)} name="isi"
+                                        <textarea className="form-control" rows={2} placeholder="Masukkan Komentar" value={this.state.formKomentar.isi} onFocus={() => this.aktifKomentar(true)} name="isi"
                                             onChange={this.handleFormChangeKomentar} />
                                     </div>
                                     {
