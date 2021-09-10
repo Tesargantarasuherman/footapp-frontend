@@ -24,8 +24,7 @@ class DetailArtikel extends Component {
     notify = () => toast.success('Komentar Berhasil Ditambahkan');
     notifyError = (mes) => toast.error(mes);
 
-
-    aktifKomentar = (input) => {gi
+    aktifKomentar = (input) => {
         this.setState({
             aktif_komentar: input,
             formKomentar: {
