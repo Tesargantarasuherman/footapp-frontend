@@ -18,6 +18,7 @@ class DetailArtikel extends Component {
             data: [],
             perPage: 3,
             currentPage: 0,
+            data_like:''
         };
     }
 
@@ -121,6 +122,14 @@ class DetailArtikel extends Component {
         }
         
     }
+    getLike=()=>{
+        let id = this.props.match.params.id
+        axios.get(`http://localhost:8000/artikel/like/${id}`).then(res => {
+            this.setState({
+                data_like: res.data.data
+            },()=>console.log('like',this.state.data_like))
+        })
+    }
     componentDidMount() {
         let id = this.props.match.params.id
         axios.get(`http://localhost:8000/artikel/${id}`).then(res => {
@@ -129,6 +138,8 @@ class DetailArtikel extends Component {
             })
         })
         this.getKomentar()
+        this.getLike()
+
     }
     render() {
         return (
@@ -146,6 +157,7 @@ class DetailArtikel extends Component {
 
                         <h5 className="card-title font-weight-bold">{(this.state.data_blog.judul)}</h5>
                         <p className="card-text">{(this.state.data_blog.deskripsi)}</p>
+                        <p className="card-text float-right">Di sukai : {(this.state.data_like)} Orang</p>
                     </div>
                     
                     <div className="col-md-12 mt-4">
