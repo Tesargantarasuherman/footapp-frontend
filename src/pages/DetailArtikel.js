@@ -18,7 +18,7 @@ class DetailArtikel extends Component {
             data: [],
             perPage: 3,
             currentPage: 0,
-            data_like:''
+            data_like: ''
         };
     }
 
@@ -96,38 +96,38 @@ class DetailArtikel extends Component {
     }
     handleSubmitKomentar = (e) => {
         e.preventDefault()
-        if(this.state.formKomentar.isi ==""){
+        if (this.state.formKomentar.isi == "") {
             this.notifyError('Jangan dikosongkan')
         }
-        else{
+        else {
             axios.post('http://localhost:8000/komentar/tambah-komentar', this.state.formKomentar, {
-            headers: {
-                // 'Content-Type': 'application/x-www-form-urlencoded',
-                // 'Access-Control-Allow-Headers': 'X-Requested-With,content-type',
-                // 'Access-Control-Allow-Origin': 'true',
-                // 'Access-Control-Allow-Credentials': 'true',
-                'Authorization': `Authorization ${localStorage.getItem("token")}`
-            }
-        }).then(res => {
-            this.setState({
-                formKomentar: {
-                    isi: "",
-                },
-            }, () => this.notify())
-        })
-            .catch(error => {
-                console.log(error)
+                headers: {
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                    // 'Access-Control-Allow-Headers': 'X-Requested-With,content-type',
+                    // 'Access-Control-Allow-Origin': 'true',
+                    // 'Access-Control-Allow-Credentials': 'true',
+                    'Authorization': `Authorization ${localStorage.getItem("token")}`
+                }
+            }).then(res => {
+                this.setState({
+                    formKomentar: {
+                        isi: "",
+                    },
+                }, () => this.notify())
             })
+                .catch(error => {
+                    console.log(error)
+                })
 
         }
-        
+
     }
-    getLike=()=>{
+    getLike = () => {
         let id = this.props.match.params.id
         axios.get(`http://localhost:8000/artikel/like/${id}`).then(res => {
             this.setState({
                 data_like: res.data.data
-            },()=>console.log('like',this.state.data_like))
+            }, () => console.log('like', this.state.data_like))
         })
     }
     componentDidMount() {
@@ -157,9 +157,12 @@ class DetailArtikel extends Component {
 
                         <h5 className="card-title font-weight-bold">{(this.state.data_blog.judul)}</h5>
                         <p className="card-text">{(this.state.data_blog.deskripsi)}</p>
-                        <p className="card-text float-right">Di sukai : {(this.state.data_like)} Orang</p>
+                        <div className="d-flex justify-content-between">
+                            <button className="btn btn-sm btn-danger" onClick="">Suka </button>
+                            <p className="card-text float-right">Di sukai : {(this.state.data_like)} Orang</p>
+                        </div>
                     </div>
-                    
+
                     <div className="col-md-12 mt-4">
                         <div className="d-flex justify-content-between align-items-start">
                             <div className="w-25">
