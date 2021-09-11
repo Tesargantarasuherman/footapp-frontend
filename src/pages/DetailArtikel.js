@@ -9,20 +9,25 @@ class DetailArtikel extends Component {
         this.state = {
             aktif_komentar: false,
             data_blog: [],
+            offset: 0,
+            data: [],
+            perPage: 3,
+            currentPage: 0,
+            data_like: '',
+            data_user: null,
             formKomentar: {
                 id_artikel: "",
                 id_user: "",
                 isi: "",
             },
-            offset: 0,
-            data: [],
-            perPage: 3,
-            currentPage: 0,
-            data_like: ''
+            formLike: {
+                id_artikel: null,
+                id_user: null
+            }
         };
     }
 
-    notify = () => toast.success('Komentar Berhasil Ditambahkan');
+    notify = (mes) => toast.success(mes);
     notifyError = (mes) => toast.error(mes);
 
     aktifKomentar = (input) => {
@@ -80,9 +85,7 @@ class DetailArtikel extends Component {
         });
 
     };
-    componentDidUpdate() {
-        this.getKomentar()
-    }
+
     handleFormChangeKomentar = (event) => {
         let id = this.props.match.params.id
 
@@ -102,18 +105,15 @@ class DetailArtikel extends Component {
         else {
             axios.post('http://localhost:8000/komentar/tambah-komentar', this.state.formKomentar, {
                 headers: {
-                    // 'Content-Type': 'application/x-www-form-urlencoded',
-                    // 'Access-Control-Allow-Headers': 'X-Requested-With,content-type',
-                    // 'Access-Control-Allow-Origin': 'true',
-                    // 'Access-Control-Allow-Credentials': 'true',
                     'Authorization': `Authorization ${localStorage.getItem("token")}`
                 }
             }).then(res => {
+                this.getKomentar()
                 this.setState({
                     formKomentar: {
                         isi: "",
                     },
-                }, () => this.notify())
+                }, () => this.notify('Komentar Berhasil Ditambahkan'))
             })
                 .catch(error => {
                     console.log(error)
@@ -130,6 +130,29 @@ class DetailArtikel extends Component {
             }, () => console.log('like', this.state.data_like))
         })
     }
+    getUser = () => {
+        let id_artikel = this.props.match.params.id
+        this.setState({
+            formLike: {
+                id_artikel: id_artikel,
+                id_user: this.state.data_user
+            }
+        })
+        let id = localStorage.getItem('id')
+        axios.get(`http://localhost:8000/user/${id}`, {
+            headers: {
+                'Authorization': `Authorization ${localStorage.getItem("token")}`
+            }
+        }).then(res => {
+            this.setState({
+                data_user: res.data.data.provider_id,
+                formLike: {
+                    id_artikel: id_artikel,
+                    id_user: res.data.data.provider_id
+                }
+            }, () => console.log('like', this.state.data_user))
+        })
+    }
     componentDidMount() {
         let id = this.props.match.params.id
         axios.get(`http://localhost:8000/artikel/${id}`).then(res => {
@@ -139,7 +162,21 @@ class DetailArtikel extends Component {
         })
         this.getKomentar()
         this.getLike()
+        this.getUser()
 
+    }
+    actionLike = () => {
+        console.log('lo', this.state.formLike)
+        axios.post('http://localhost:8000/artikel/like', this.state.formLike, {
+            headers: {
+                'Authorization': `Authorization ${localStorage.getItem("token")}`
+            }
+        }).then(res => {
+            this.notify('like berhasil ditambahkan');
+        })
+            .catch(error => {
+                console.log(error)
+            })
     }
     render() {
         return (
@@ -158,7 +195,7 @@ class DetailArtikel extends Component {
                         <h5 className="card-title font-weight-bold">{(this.state.data_blog.judul)}</h5>
                         <p className="card-text">{(this.state.data_blog.deskripsi)}</p>
                         <div className="d-flex justify-content-between">
-                            <button className="btn btn-sm btn-danger" onClick="">Suka </button>
+                            <button className="btn btn-sm btn-danger" onClick={this.actionLike}>Suka </button>
                             <p className="card-text float-right">Di sukai : {(this.state.data_like)} Orang</p>
                         </div>
                     </div>
