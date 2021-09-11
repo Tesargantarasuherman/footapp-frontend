@@ -153,13 +153,16 @@ class DetailArtikel extends Component {
             }, () => console.log('like', this.state.data_user))
         })
     }
-    componentDidMount() {
+    getArtikel = () => {
         let id = this.props.match.params.id
         axios.get(`http://localhost:8000/artikel/${id}`).then(res => {
             this.setState({
                 data_blog: res.data.data.data[0]
             })
         })
+    }
+    componentDidMount() {
+        this.getArtikel()
         this.getKomentar()
         this.getLike()
         this.getUser()
@@ -177,6 +180,7 @@ class DetailArtikel extends Component {
             .catch(error => {
                 console.log(error)
             })
+        this.getLike()
     }
     render() {
         return (
