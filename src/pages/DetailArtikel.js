@@ -15,6 +15,7 @@ class DetailArtikel extends Component {
             currentPage: 0,
             data_like: '',
             data_user: null,
+            status_like: null,
             formKomentar: {
                 id_artikel: "",
                 id_user: "",
@@ -150,7 +151,15 @@ class DetailArtikel extends Component {
                     id_artikel: id_artikel,
                     id_user: res.data.data.provider_id
                 }
-            }, () => console.log('like', this.state.data_user))
+            }, () => this.getStatusLike(this.state.data_user))
+        })
+    }
+    getStatusLike = (id) => {
+        let id_artikel = this.props.match.params.id
+        axios.get(`http://localhost:8000/artikel/like/user/${id_artikel}/${id}`).then(res => {
+            this.setState({
+                status_like: res.data.data
+            }, () => console.log('ada', this.state.status_like))
         })
     }
     getArtikel = () => {
@@ -166,6 +175,7 @@ class DetailArtikel extends Component {
         this.getKomentar()
         this.getLike()
         this.getUser()
+        // this.getStatusLike()
 
     }
     actionLike = () => {
@@ -176,6 +186,22 @@ class DetailArtikel extends Component {
             }
         }).then(res => {
             this.notify('like berhasil ditambahkan');
+            this.getStatusLike(this.state.formLike.id_user)
+        })
+            .catch(error => {
+                console.log(error)
+            })
+        this.getLike()
+    }
+    actionCancelLike = () => {
+        console.log('lo', this.state.formLike)
+        axios.post('http://localhost:8000/artikel/like', this.state.formLike, {
+            headers: {
+                'Authorization': `Authorization ${localStorage.getItem("token")}`
+            }
+        }).then(res => {
+            this.notifyError('like berhasil dibatalkan');
+            this.getStatusLike(this.state.formLike.id_user)
         })
             .catch(error => {
                 console.log(error)
@@ -199,7 +225,12 @@ class DetailArtikel extends Component {
                         <h5 className="card-title font-weight-bold">{(this.state.data_blog.judul)}</h5>
                         <p className="card-text">{(this.state.data_blog.deskripsi)}</p>
                         <div className="d-flex justify-content-between">
-                            <button className="btn btn-sm btn-danger" onClick={this.actionLike}>Suka </button>
+                            {
+                                this.state.status_like == null ? <button className="btn btn-sm btn-success" onClick={this.actionLike}>Suka </button> :
+                                    <button className="btn btn-sm btn-danger" onClick={this.actionCancelLike}> Batal Suka </button>
+
+
+                            }
                             <p className="card-text float-right">Di sukai : {(this.state.data_like)} Orang</p>
                         </div>
                     </div>
