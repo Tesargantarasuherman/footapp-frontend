@@ -39,7 +39,7 @@ class Artikel extends Component {
                                         </div>
                                         <div className="align-self-center w-75 mt-2">
                                             <div>
-                                                <strong>Tesar Gantara Suherman</strong>
+                                                <strong>{pd.penulis}</strong>
                                             </div>
                                             <div>
                                                 Admin

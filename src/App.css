@@ -287,6 +287,24 @@ section.artikel{
 .pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{
   border-radius: unset
 }
+.body-banner{
+  position: relative;
+  height: 400px;
+  border-radius: 20px;
+
+}
+.body-banner img{
+  border-radius: 20px;
+  height: 400px;
+
+}
+.title-banner{
+  position: absolute;
+  color: #fff;
+  top: 40%;
+  left: 20%;
+  font-size: 40px;
+}
 @media only screen and (max-width: 600px) {
   body {
     background-color: lightblue;
