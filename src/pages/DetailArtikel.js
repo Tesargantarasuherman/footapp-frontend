@@ -262,20 +262,26 @@ class DetailArtikel extends Component {
                             </div>
                         </div>
                         {this.state.postData}
-
+                                        
                         <div className="pagination d-flex justify-content-center w-100">
+                        {
+                            this.state.pageCount == 0 ?
+                            '' :
                             <ReactPaginate
-                                previousLabel={"prev"}
-                                nextLabel={"next"}
-                                breakLabel={"..."}
-                                breakClassName={"break-me"}
-                                pageCount={this.state.pageCount}
-                                marginPagesDisplayed={2}
-                                pageRangeDisplayed={5}
-                                onPageChange={this.handlePageClick}
-                                containerClassName={"pagination"}
-                                subContainerClassName={"pages pagination"}
-                                activeClassName={"active"} />
+                            previousLabel={"prev"}
+                            nextLabel={"next"}
+                            breakLabel={"..."}
+                            breakClassName={"break-me"}
+                            pageCount={this.state.pageCount}
+                            marginPagesDisplayed={2}
+                            pageRangeDisplayed={5}
+                            onPageChange={this.handlePageClick}
+                            containerClassName={"pagination"}
+                            subContainerClassName={"pages pagination"}
+                            activeClassName={"active"} />
+
+
+                        }
                         </div>
 
 

@@ -2,7 +2,9 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
-
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
 class Artikel extends Component {
     constructor(props) {
         super(props);
@@ -19,39 +21,6 @@ class Artikel extends Component {
             const data = res.data.data;
             const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
             const postData = slice.map((pd,index,row) => {
-                console.log(row)
-                if (index === 0) {
-                    return (
-                        <React.Fragment>
-                            <div className="row body-artikel">
-                                <div className="col-md-8 img-jumbotron-artikel">
-                                    <img src="https://images.unsplash.com/photo-1624880357913-a8539238245b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
-                                </div>
-                                <div className="col-md-4">
-                                    <div className="tanggal-artikel-utama">
-                                        <p class="font-italic card-text">{pd.created_at}</p>
-                                    </div>
-                                    <div className="judul-artikel-utama"><h5 className="card-title font-weight-bold">{pd.judul}</h5></div>
-                                    <div className="isi-artikel-utama my-2">{pd.deskripsi.substring(0, 500)}</div>
-                                    <div className="d-flex justify-content-between mt-2">
-                                        <div className="align-self-center w-25">
-                                            <img src="https://images.unsplash.com/photo-1575739967915-f06fdc268a5b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=637&q=80" width="50" height="50" className="br-50 rounded mx-auto d-block" />
-                                        </div>
-                                        <div className="align-self-center w-75 mt-2">
-                                            <div>
-                                                <strong>{pd.penulis}</strong>
-                                            </div>
-                                            <div>
-                                                Admin
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </React.Fragment>
-                    )
-                }
-                else {
                     return (
                         <React.Fragment>
                             <div className="col-md-6 my-2">
@@ -67,7 +36,6 @@ class Artikel extends Component {
                             </div>
                         </React.Fragment>
                     )
-                }
             })
 
 
@@ -97,6 +65,24 @@ class Artikel extends Component {
     render() {
         return (
             <div className="container body-utama-artikel">
+            <OwlCarousel items={1}
+            className="owl-theme"
+            loop
+            autoplay
+            >
+            <div className="body-banner">
+                <div className="title-banner">
+                    Lorem IPSUM
+                </div>
+                <img src="https://images.unsplash.com/photo-1529900748604-07564a03e7a6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="The Last of us" />
+            </div>
+            <div className="body-banner">
+                <div className="title-banner">
+                    Lorem IPSUM DOLOR
+                </div>
+                <img src="https://images.unsplash.com/photo-1529900748604-07564a03e7a6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="The Last of us" />
+            </div>
+        </OwlCarousel>
 
                 <section className="artikel">
                     <div className="row mb-4">
@@ -104,6 +90,7 @@ class Artikel extends Component {
 
                     </div>
                     <div className="pagination d-flex justify-content-center">
+                    
                         <ReactPaginate
                             previousLabel={"prev"}
                             nextLabel={"next"}
