@@ -226,16 +226,15 @@ class DetailArtikel extends Component {
                         <p className="card-text">{(this.state.data_blog.deskripsi)}</p>
                         <div className="d-flex justify-content-between">
                             {
-                                this.state.status_like == null ? <button className="btn btn-sm btn-success" onClick={this.actionLike}>Suka </button> :
-                                    <button className="btn btn-sm btn-danger" onClick={this.actionCancelLike}> Batal Suka </button>
-
-
+                                this.state.status_like == null ? <span class="lnr lnr-thumbs-up suka-artikel lnr-lg" onClick={this.actionLike}><span> Suka</span> </span>
+                                    :
+                                    <span class="lnr lnr-thumbs-up batal-suka-artikel lnr-lg" onClick={this.actionCancelLike}> <span> Suka</span></span>
                             }
-                            <p className="card-text float-right">Di sukai : {(this.state.data_like)} Orang</p>
+                            <p className="card-text float-right">{(this.state.data_like)} Orang Menyukai Artikel Ini</p>
                         </div>
                     </div>
 
-                    <div className="col-md-12 mt-4">
+                    <div className="col-md-12 mt-4 bg-secondary py-4 br-20 mb-4">
                         <div className="d-flex justify-content-between align-items-start">
                             <div className="w-25">
                                 <img src="https://images.unsplash.com/photo-1575739967915-f06fdc268a5b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=637&q=80" width="50" height="50" className="br-50 float-right mx-4" />
@@ -262,26 +261,26 @@ class DetailArtikel extends Component {
                             </div>
                         </div>
                         {this.state.postData}
-                                        
+
                         <div className="pagination d-flex justify-content-center w-100">
-                        {
-                            this.state.pageCount == 0 ?
-                            '' :
-                            <ReactPaginate
-                            previousLabel={"prev"}
-                            nextLabel={"next"}
-                            breakLabel={"..."}
-                            breakClassName={"break-me"}
-                            pageCount={this.state.pageCount}
-                            marginPagesDisplayed={2}
-                            pageRangeDisplayed={5}
-                            onPageChange={this.handlePageClick}
-                            containerClassName={"pagination"}
-                            subContainerClassName={"pages pagination"}
-                            activeClassName={"active"} />
+                            {
+                                this.state.pageCount == 0 ?
+                                    '' :
+                                    <ReactPaginate
+                                        previousLabel={"prev"}
+                                        nextLabel={"next"}
+                                        breakLabel={"..."}
+                                        breakClassName={"break-me"}
+                                        pageCount={this.state.pageCount}
+                                        marginPagesDisplayed={2}
+                                        pageRangeDisplayed={5}
+                                        onPageChange={this.handlePageClick}
+                                        containerClassName={"pagination"}
+                                        subContainerClassName={"pages pagination"}
+                                        activeClassName={"active"} />
 
 
-                        }
+                            }
                         </div>
 
 
