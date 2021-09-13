@@ -11,7 +11,7 @@ class DetailArtikel extends Component {
             data_blog: [],
             offset: 0,
             data: [],
-            perPage: 3,
+            perPage: 5,
             currentPage: 0,
             data_like: '',
             data_user: null,
@@ -187,11 +187,11 @@ class DetailArtikel extends Component {
         }).then(res => {
             this.notify('like berhasil ditambahkan');
             this.getStatusLike(this.state.formLike.id_user)
+            this.getLike()
         })
             .catch(error => {
                 console.log(error)
             })
-        this.getLike()
     }
     actionCancelLike = () => {
         console.log('lo', this.state.formLike)
@@ -202,11 +202,11 @@ class DetailArtikel extends Component {
         }).then(res => {
             this.notifyError('like berhasil dibatalkan');
             this.getStatusLike(this.state.formLike.id_user)
+            this.getLike()
         })
             .catch(error => {
                 console.log(error)
             })
-        this.getLike()
     }
     render() {
         return (
@@ -220,8 +220,10 @@ class DetailArtikel extends Component {
                         <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1156&q=80" />
                     </div>
                     <div className="col-md-12 my-4">
-                        <p class="font-italic card-text">{(this.state.data_blog.tanggal)}</p>
-
+                        <div className="d-flex justify-content-between">
+                            <p class="font-italic card-text">{(this.state.data_blog.tanggal)}</p>
+                            <p class="card-text">ditulis oleh : <b>{(this.state.data_blog.penulis)}</b></p>
+                        </div>
                         <h5 className="card-title font-weight-bold">{(this.state.data_blog.judul)}</h5>
                         <p className="card-text">{(this.state.data_blog.deskripsi)}</p>
                         <div className="d-flex justify-content-between">

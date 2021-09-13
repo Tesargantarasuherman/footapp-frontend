@@ -63,11 +63,15 @@ export default class App extends Component {
                   </div>
                 </div>
                 <span class="navbar-text">
-                {id !== null ?
-                  <button className="btn btn-success text-light btn-sm" onClick={this.logout}>Logout</button>
-                  :
-                  <Link className="btn btn-success text-light btn-sm" to="/sign">Login</Link>
-                }
+                  {id !== null ?
+                    <GoogleLogout
+                      clientId="862537460238-0suciho0vh9nr46070lvui80mlei8u9d.apps.googleusercontent.com"
+                      buttonText="Logout"
+                      onLogoutSuccess={this.logout}
+                    >
+                    </GoogleLogout> :
+                    <Link className="btn btn-success text-light btn-sm" to="/sign">Login</Link>
+                  }
                 </span>
               </div>
             </nav>
