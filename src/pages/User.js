@@ -28,7 +28,7 @@ class User extends Component {
                 status: "",
             },
             nama_tim: "",
-            daftar_pemain: []
+            daftar_pemain: [],
         };
         this.onChange = this.onChange.bind(this);
 
@@ -203,40 +203,93 @@ class User extends Component {
                                         {
                                             this.state.data_pengguna ? (
                                                 <div className="mt-4 mx-4 px-4'">
+                                                    <div className="col-12">
 
-                                                    <form onSubmit={this.handleSubmitTambahAnggotaTim}>
-                                                        <input type="hidden" name="id_tim" className="form-control form-shadow" value={this.state.dataUserTim.id} />
-                                                        <div className="form-group row">
-                                                            <label className="col-sm-2 col-form-label">Nama Pemain</label>
-                                                            <div className="col-sm-10">
-                                                                <input type="text" name="nama_pemain" className="form-control form-shadow" onChange={this.handleFormChangeTambahPemain} value={this.state.data_pemain.nama_pemain} placeholder="Masukkan Nama Pemain" />
+                                                        <form onSubmit={this.handleSubmitTambahAnggotaTim}>
+                                                            <input type="hidden" name="id_tim" className="form-control form-shadow" value={this.state.dataUserTim.id} />
+                                                            <div className="form-group row">
+                                                                <label className="col-sm-2 col-form-label">Nama Pemain</label>
+                                                                <div className="col-sm-10">
+                                                                    <input type="text" name="nama_pemain" className="form-control form-shadow" onChange={this.handleFormChangeTambahPemain} value={this.state.data_pemain.nama_pemain} placeholder="Masukkan Nama Pemain" />
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div className="form-group row">
-                                                            <label className="col-sm-2 col-form-label">No Pemain</label>
-                                                            <div className="col-sm-10">
-                                                                <input type="number" name="no_punggung" className="form-control form-shadow" onChange={this.handleFormChangeTambahPemain} placeholder="Masukkan No Punggung" />
+                                                            <div className="form-group row">
+                                                                <label className="col-sm-2 col-form-label">No Pemain</label>
+                                                                <div className="col-sm-10">
+                                                                    <input type="number" name="no_punggung" className="form-control form-shadow" onChange={this.handleFormChangeTambahPemain} placeholder="Masukkan No Punggung" />
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div className="form-group row">
-                                                            <label className="col-sm-2 col-form-label">Posisi</label>
-                                                            <div className="col-sm-10">
-                                                                <input type="text" name="posisi" className="form-control form-shadow" onChange={this.handleFormChangeTambahPemain} placeholder="Masukkan Posisi" />
+                                                            <div className="form-group row">
+                                                                <label className="col-sm-2 col-form-label">Posisi</label>
+                                                                <div className="col-sm-10">
+                                                                    <input type="text" name="posisi" className="form-control form-shadow" onChange={this.handleFormChangeTambahPemain} placeholder="Masukkan Posisi" />
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div className="form-group row">
-                                                            <label className="col-sm-2 col-form-label">Status</label>
-                                                            <div className="col-sm-10">
-                                                                <input type="text" name="status" className="form-control form-shadow" onChange={this.handleFormChangeTambahPemain} placeholder="Status" />
+                                                            <div className="form-group row">
+                                                                <label className="col-sm-2 col-form-label">Status</label>
+                                                                <div className="col-sm-10">
+                                                                    <input type="text" name="status" className="form-control form-shadow" onChange={this.handleFormChangeTambahPemain} placeholder="Status" />
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <button type="submit" className="btn btn-success btn-block mb-4">Tambah Tim</button>
-                                                    </form>
+                                                            <button type="submit" className="btn btn-success btn-block mb-4">Tambah Tim</button>
+                                                        </form>
+                                                    </div>
                                                 </div>
 
-                                            ) : ''
+                                            ) : (
+                                                this.state.data_cari.email != "" ?
+                                                    <div className="text-center bg-white mx-4 py-2 br-20">
+                                                        <div className="col-12">
+                                                            <span>Data Tidak Ditemukan</span>
+                                                        </div>
+                                                    </div>
+                                                    : ''
+
+                                            )
+
                                         }
+                                        <div className="mt-4 mx-4 px-4">
+                                            <div className="col-12">
+                                                <div className="bg-white tim-saya br-20">
+                                                    <div className="d-flex justify-content-center font-weight-bold">
+                                                        {this.state.nama_tim}
+                                                    </div>
+                                                    <div className="d-flex justify-content-between bg-danger mb-2 text-center py-2 text-white">
+                                                        <div className="w-25">
+                                                            Nama Pemain
+                                                        </div>
+                                                        <div className="w-25">
+                                                            No Punggung
+                                                        </div>
+                                                        <div className="w-25">
+                                                            Posisi                                                        </div>
+                                                        <div className="w-25">
+                                                            Status
+                                                        </div>
+                                                    </div>
+                                                    {this.state.daftar_pemain.map(pemain => {
+                                                        return (
+                                                            <div className="d-flex justify-content-between bg-danger mb-2 text-center py-2 text-white">
+                                                                <div className="w-25">
+                                                                    {pemain.nama_pemain}
+                                                                </div>
+                                                                <div className="w-25">
+                                                                    {pemain.no_punggung}
+                                                                </div>
+                                                                <div className="w-25">
+                                                                    {pemain.posisi}
+                                                                </div>
+                                                                <div className="w-25">
+                                                                    {pemain.status}
+                                                                </div>
+                                                            </div>
+                                                        )
+                                                    })}
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
+
                                 )
                                 :
                                 <div className='mt-4 mx-4 px-4'>
