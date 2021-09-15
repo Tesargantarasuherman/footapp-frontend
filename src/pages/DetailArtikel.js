@@ -280,8 +280,6 @@ class DetailArtikel extends Component {
                                         containerClassName={"pagination"}
                                         subContainerClassName={"pages pagination"}
                                         activeClassName={"active"} />
-
-
                             }
                         </div>
 
