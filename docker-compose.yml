@@ -1,0 +1,14 @@
+version: '3.8'
+services: 
+    footapp:
+        build: .
+        container_name: footapp-container
+        networks:
+            - footapp-networks
+        volumes: 
+            - .:/app
+        ports: 
+            - 3000:3000
+networks: 
+    footapp-networks:
+        

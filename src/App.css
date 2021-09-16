@@ -133,6 +133,7 @@ body {
 .img-detail-artikel img {
   width: 100%;
   border-radius: 10px;
+  object-fit: cover;
 }
 
 .wrapper-jadwal .card-jadwal-pertandingan {
@@ -271,7 +272,7 @@ section.artikel {
 .img-jumbotron-artikel img {
   border-radius: 20px !important;
   height: 450px;
-  width: 100%
+  object-fit: cover;
 }
 
 .judul-artikel-utama {
