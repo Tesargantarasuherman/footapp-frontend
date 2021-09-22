@@ -19,6 +19,7 @@ import { withRouter } from 'react-router'
 import { GoogleLogout } from 'react-google-login';
 import Artikel from './pages/Artikel';
 import DetailArtikel from './pages/DetailArtikel';
+import Chat from './pages/Chat';
 
 export default class App extends Component {
   constructor(props) {
@@ -61,6 +62,9 @@ export default class App extends Component {
                   <div className="navbar-nav">
                     <Link className="nav-item nav-link" to='/artikel'>Artikel</Link>
                   </div>
+                  <div className="navbar-nav">
+                    <Link className="nav-item nav-link" to='/pesan'>Pesan</Link>
+                  </div>
                 </div>
                 <span class="navbar-text">
                   {id !== null ?
@@ -91,6 +95,7 @@ export default class App extends Component {
                 <Route path="/" exact component={Home} />
                 <Route path="/klasemen/:id" exact component={Klasemen} />
                 <Route path="/artikel" exact component={Artikel} />
+                <Route path="/pesan" exact component={Chat} />
                 <Route path="/artikel/:id" exact component={DetailArtikel} />
               </Switch>
             </Switch>
