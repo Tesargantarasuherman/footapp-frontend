@@ -78,8 +78,7 @@ class User extends Component {
 
             this.setState({
                 dataUserTim: res.data.data
-            }, () => this.getTim(res.data.data.id))
-
+            },()=> this.getTim(res.data.data.id))
         })
     }
     dataUser() {
@@ -190,7 +189,7 @@ class User extends Component {
                     </div>
                     <div className="w-75 bg-success br-20 ml-4">
                         {
-                            this.state.dataUserTim ?
+                            this.state.dataUserTim !== '' ?
                                 (
                                     <div>
                                         <form>
@@ -262,7 +261,8 @@ class User extends Component {
                                                             No Punggung
                                                         </div>
                                                         <div className="w-25">
-                                                            Posisi                                                        </div>
+                                                            Posisi                                                        
+                                                        </div>
                                                         <div className="w-25">
                                                             Status
                                                         </div>
