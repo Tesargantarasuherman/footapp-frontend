@@ -8,7 +8,8 @@ class Chat extends Component {
         super(props);
         this.state = {
             dataChatSaya: [],
-            isiChatSaya: []
+            isiChatSaya: [],
+            id:null
         }
     }
     chatSaya() {
@@ -19,15 +20,20 @@ class Chat extends Component {
         })
     }
     componentDidMount() {
+        let id = localStorage.getItem('id')
+
+        this.setState({
+            id: id
+        })
         this.chatSaya();
     }
     lihatChat = (id_chat) => {
         // http://localhost:8000/chat/10581453821094379520/1094379520
         let id = localStorage.getItem('id')
         axios.get(`http://localhost:8000/chat/${id_chat}/${id}`, {}).then(res => {
-            setTimeout(() => { this.setState({ isiChatSaya: res.data.data.chat }, () => console.log('val', this.state.isiChatSaya)) }, 5000)
-
+             this.setState({ isiChatSaya: res.data.data.chat }, () => console.log('val', this.state.isiChatSaya))   
         })
+
     }
     render() {
         return (
@@ -48,7 +54,7 @@ class Chat extends Component {
                             {
                                 this.state.isiChatSaya.map(isi => {
                                     return (
-                                        isi.aktif == true ?
+                                        isi.id_pengechat == parseInt(this.state.id) ?
                                             (
                                                 <div className="container-chat">
                                                     <img src="https://images.unsplash.com/flagged/photo-1557786458-77474e6ff1bb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=880&q=80" alt="Avatar" />
