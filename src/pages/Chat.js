@@ -44,26 +44,31 @@ class Chat extends Component {
 
                     </div>
                     <div className="w-75 bg-success br-20 ml-4">
-                        {
-                            this.state.isiChatSaya.map(isi => {
-                                return(
-                                    isi.aktif == true ?
-                                    (
-                                        <div className="text-danger">
-                                            {isi.isi_chat}
-                                        </div>
-                                    ) :
-                                    (
-                                        <div>
-                                            {isi.isi_chat}
-                                        </div>
+                        <div className="mx-4">
+                            {
+                                this.state.isiChatSaya.map(isi => {
+                                    return (
+                                        isi.aktif == true ?
+                                            (
+                                                <div className="container-chat">
+                                                    <img src="https://images.unsplash.com/flagged/photo-1557786458-77474e6ff1bb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=880&q=80" alt="Avatar" />
+                                                    <p>{isi.isi_chat}</p>
+                                                    <span className="time-right">11:00</span>
+                                                </div>
+                                            ) :
+                                            (
+                                                <div className="container-chat darker">
+                                                    <img src="https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="Avatar" className="right" />
+                                                    <p>{isi.isi_chat}</p>
+                                                    <span className="time-left">11:05</span>
+                                                </div>
+                                            )
                                     )
-                                )
-                            })
-                        }
+                                })
+                            }
+
+                        </div>
                     </div>
-
-
                 </div>
             </div>
         )
