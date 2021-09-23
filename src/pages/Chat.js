@@ -9,7 +9,7 @@ class Chat extends Component {
         this.state = {
             dataChatSaya: [],
             isiChatSaya: [],
-            id:null
+            id: null
         }
     }
     chatSaya() {
@@ -31,7 +31,7 @@ class Chat extends Component {
         // http://localhost:8000/chat/10581453821094379520/1094379520
         let id = localStorage.getItem('id')
         axios.get(`http://localhost:8000/chat/${id_chat}/${id}`, {}).then(res => {
-             this.setState({ isiChatSaya: res.data.data.chat }, () => console.log('val', this.state.isiChatSaya))   
+            this.setState({ isiChatSaya: res.data.data.chat }, () => console.log('val', this.state.isiChatSaya))
         })
 
     }
@@ -72,7 +72,12 @@ class Chat extends Component {
                                     )
                                 })
                             }
-
+                            <form className="form-inline">
+                                <div className="form-group mb-2 w-75">
+                                  <input type="text" className="form-control w-100" placeholder="Password" />
+                                </div>
+                                <button type="submit" className="btn btn-primary mb-2 w-25">Kirim</button>
+                            </form>
                         </div>
                     </div>
                 </div>
