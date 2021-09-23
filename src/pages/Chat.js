@@ -10,13 +10,13 @@ class Chat extends Component {
             dataChatSaya: [],
             isiChatSaya: [],
             id: null,
-            formChat:{
-                id_pengechat:'',
-                isi_chat:'',
-                id_yangdichat:'',
-                id_chat:''
+            formChat: {
+                id_pengechat: '',
+                isi_chat: '',
+                id_yangdichat: '',
+                id_chat: ''
             },
-            dataIsiChat:[]
+            dataIsiChat: []
         }
     }
     chatSaya() {
@@ -38,9 +38,9 @@ class Chat extends Component {
         let id = localStorage.getItem('id')
         axios.get(`http://localhost:8000/chat/${id_chat}/${id}`, {}).then(res => {
             this.setState(
-                { 
-                    isiChatSaya: res.data.data.chat, 
-                    dataIsiChat: res.data.data 
+                {
+                    isiChatSaya: res.data.data.chat,
+                    dataIsiChat: res.data.data
                 }, () => console.log('isi caht', this.state.dataIsiChat))
         })
 
@@ -51,11 +51,24 @@ class Chat extends Component {
         let formChatNew = { ...this.state.formChat };
         formChatNew[event.target.name] = event.target.value;
         formChatNew['id_chat'] = this.state.dataIsiChat.id_chat;
-        formChatNew['id_pengechat'] = parseInt(id)  ;
-        formChatNew['id_yangdichat'] = this.state.dataIsiChat.id_yangdichat != parseInt(id) ? this.state.dataIsiChat.id_yangdichat :  this.state.dataIsiChat.id_pengechat ;
+        formChatNew['id_pengechat'] = parseInt(id);
+        formChatNew['id_yangdichat'] = this.state.dataIsiChat.id_yangdichat != parseInt(id) ? this.state.dataIsiChat.id_yangdichat : this.state.dataIsiChat.id_pengechat;
         this.setState({
             formChat: formChatNew,
         }, () => console.log(formChatNew))
+    }
+    handleBalasChat = (e) => {
+        handleSubmitLogin = (e) => {
+            e.preventDefault()
+
+            axios.post('http://localhost:8000/chat/balas', this.state.formChat).then(res => {
+                console.log(res.data);
+            }
+            )
+                .catch(error => {
+                    console.log(error)
+                })
+        }
     }
     render() {
         return (
@@ -94,9 +107,9 @@ class Chat extends Component {
                                     )
                                 })
                             }
-                            <form className="form-inline">
+                            <form className="form-inline" onSubmit={this.handleBalasChat}>
                                 <div className="form-group mb-2 w-75">
-                                  <input type="text" className="form-control w-100" placeholder="Masukkan Pesan" name="isi_chat"  onChange={this.handleFormChat} />
+                                    <input type="text" className="form-control w-100" placeholder="Masukkan Pesan" name="isi_chat" onChange={this.handleFormChat} />
                                 </div>
                                 <button type="submit" className="btn btn-success mb-2 w-25">Kirim</button>
                             </form>
