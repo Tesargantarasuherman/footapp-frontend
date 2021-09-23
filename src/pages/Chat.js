@@ -15,7 +15,8 @@ class Chat extends Component {
                 isi_chat:'',
                 id_yangdichat:'',
                 id_chat:''
-            }
+            },
+            dataIsiChat:[]
         }
     }
     chatSaya() {
@@ -36,13 +37,20 @@ class Chat extends Component {
     lihatChat = (id_chat) => {
         let id = localStorage.getItem('id')
         axios.get(`http://localhost:8000/chat/${id_chat}/${id}`, {}).then(res => {
-            this.setState({ isiChatSaya: res.data.data.chat }, () => console.log('val', this.state.isiChatSaya))
+            this.setState(
+                { 
+                    isiChatSaya: res.data.data.chat, 
+                    dataIsiChat: res.data.data 
+                }, () => console.log('isi caht', this.state.dataIsiChat))
         })
 
     }
     handleFormChat = (event) => {
         let formChatNew = { ...this.state.formChat };
         formChatNew[event.target.name] = event.target.value;
+        formChatNew['id_chat'] = this.state.dataIsiChat.id_chat;
+        formChatNew['id_pengechat'] = this.state.dataIsiChat.id_pengechat;
+        formChatNew['id_yangdichat'] = this.state.dataIsiChat.id_yangdichat;
         this.setState({
             formChat: formChatNew,
         }, () => console.log(formChatNew))
