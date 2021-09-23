@@ -76,7 +76,7 @@ class Chat extends Component {
                                 <div className="form-group mb-2 w-75">
                                   <input type="text" className="form-control w-100" placeholder="Password" />
                                 </div>
-                                <button type="submit" className="btn btn-primary mb-2 w-25">Kirim</button>
+                                <button type="submit" className="btn btn-success mb-2 w-25">Kirim</button>
                             </form>
                         </div>
                     </div>
