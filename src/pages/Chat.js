@@ -58,7 +58,6 @@ class Chat extends Component {
         }, () => console.log(formChatNew))
     }
     handleBalasChat = (e) => {
-        handleSubmitLogin = (e) => {
             e.preventDefault()
 
             axios.post('http://localhost:8000/chat/balas', this.state.formChat).then(res => {
@@ -68,7 +67,6 @@ class Chat extends Component {
                 .catch(error => {
                     console.log(error)
                 })
-        }
     }
     render() {
         return (
