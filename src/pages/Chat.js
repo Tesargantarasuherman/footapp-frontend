@@ -61,9 +61,9 @@ class Chat extends Component {
             e.preventDefault()
 
             axios.post('http://localhost:8000/chat/balas', this.state.formChat).then(res => {
-                console.log(res.data);
-            }
-            )
+                console.log('id_chat',res.data.data.id_chat);
+                this.lihatChat(res.data.data.id_chat)
+            })
                 .catch(error => {
                     console.log(error)
                 })
