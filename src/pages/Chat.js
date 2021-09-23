@@ -10,7 +10,7 @@ class Chat extends Component {
             dataChatSaya: [],
             isiChatSaya: [],
             id: null,
-            dataBalasChat:{
+            formChat:{
                 id_pengechat:'',
                 isi_chat:'',
                 id_yangdichat:'',
@@ -34,12 +34,18 @@ class Chat extends Component {
         this.chatSaya();
     }
     lihatChat = (id_chat) => {
-        // http://localhost:8000/chat/10581453821094379520/1094379520
         let id = localStorage.getItem('id')
         axios.get(`http://localhost:8000/chat/${id_chat}/${id}`, {}).then(res => {
             this.setState({ isiChatSaya: res.data.data.chat }, () => console.log('val', this.state.isiChatSaya))
         })
 
+    }
+    handleFormChat = (event) => {
+        let formChatNew = { ...this.state.formChat };
+        formChatNew[event.target.name] = event.target.value;
+        this.setState({
+            formChat: formChatNew,
+        }, () => console.log(formChatNew))
     }
     render() {
         return (
@@ -80,7 +86,7 @@ class Chat extends Component {
                             }
                             <form className="form-inline">
                                 <div className="form-group mb-2 w-75">
-                                  <input type="text" className="form-control w-100" placeholder="Password" />
+                                  <input type="text" className="form-control w-100" placeholder="Masukkan Pesan" name="isi_chat"  onChange={this.handleFormChat} />
                                 </div>
                                 <button type="submit" className="btn btn-success mb-2 w-25">Kirim</button>
                             </form>
