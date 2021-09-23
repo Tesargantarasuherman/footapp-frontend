@@ -9,7 +9,13 @@ class Chat extends Component {
         this.state = {
             dataChatSaya: [],
             isiChatSaya: [],
-            id: null
+            id: null,
+            dataBalasChat:{
+                id_pengechat:'',
+                isi_chat:'',
+                id_yangdichat:'',
+                id_chat:''
+            }
         }
     }
     chatSaya() {
