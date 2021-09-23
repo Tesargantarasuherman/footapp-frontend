@@ -45,12 +45,18 @@ class Chat extends Component {
         })
 
     }
+    // getPengechat =(id)=>{
+    //     if(id == this.state.dataIsiChat.id_yangdichat){
+
+    //     }
+    // }
     handleFormChat = (event) => {
+        let id = localStorage.getItem('id')
         let formChatNew = { ...this.state.formChat };
         formChatNew[event.target.name] = event.target.value;
         formChatNew['id_chat'] = this.state.dataIsiChat.id_chat;
-        formChatNew['id_pengechat'] = this.state.dataIsiChat.id_pengechat;
-        formChatNew['id_yangdichat'] = this.state.dataIsiChat.id_yangdichat;
+        formChatNew['id_pengechat'] = parseInt(id)  ;
+        formChatNew['id_yangdichat'] = this.state.dataIsiChat.id_yangdichat == parseInt(id) ? null : this.state.dataIsiChat.id_yangdichat ;
         this.setState({
             formChat: formChatNew,
         }, () => console.log(formChatNew))
