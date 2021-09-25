@@ -3,18 +3,15 @@
 /* Chat containers */
 .body-chat{
   overflow-x:scroll;  
-  position: relative;
+  /* position: relative; */
 
 }
 .body-chat-center{
 
 }
-.input-chat{
-  position:absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
+/* .input-chat{
+  position: static;
+} */
 .container-chat {
   border: 2px solid #dedede;
   background-color: #f1f1f1;
