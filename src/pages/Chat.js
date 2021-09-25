@@ -83,7 +83,7 @@ class Chat extends Component {
 
                     </div>
                     <div className="w-75 bg-success br-20 ml-4 body-chat">
-                        <div className="mx-4 ">
+                        <div className="mx-4 body-chat-center">
                             {
                                 this.state.isiChatSaya.map(isi => {
                                     return (
@@ -105,7 +105,7 @@ class Chat extends Component {
                                     )
                                 })
                             }
-                            <form className="form-inline" onSubmit={this.handleBalasChat}>
+                            <form className="form-inline input-chat" onSubmit={this.handleBalasChat}>
                                 <div className="form-group mb-2 w-75">
                                     <input type="text" className="form-control w-100" placeholder="Masukkan Pesan" name="isi_chat" onChange={this.handleFormChat} />
                                 </div>

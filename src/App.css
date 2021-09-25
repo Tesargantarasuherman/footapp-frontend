@@ -2,7 +2,18 @@
 /* chat */
 /* Chat containers */
 .body-chat{
-  overflow-x:scroll;
+  overflow-x:scroll;  
+  position: relative;
+
+}
+.body-chat-center{
+
+}
+.input-chat{
+  position:absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 .container-chat {
   border: 2px solid #dedede;
