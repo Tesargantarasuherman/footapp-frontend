@@ -82,8 +82,8 @@ class Chat extends Component {
                         })}
 
                     </div>
-                    <div className="w-75 bg-success br-20 ml-4">
-                        <div className="mx-4">
+                    <div className="w-75 bg-success br-20 ml-4 body-chat">
+                        <div className="mx-4 ">
                             {
                                 this.state.isiChatSaya.map(isi => {
                                     return (
