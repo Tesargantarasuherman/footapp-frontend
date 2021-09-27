@@ -87,8 +87,8 @@ class Chat extends Component {
           <div className="w-25 bg-success br-10 ">
             {this.state.dataChatSaya.map((data) => {
               return (
-                <div className="d-flex justify-content-center text-light mx-2  mt-5">
-                  <button onClick={() => this.lihatChat(data.id_chat)}>
+                <div className="d-flex justify-content-center text-light mx-2  my-2">
+                  <button onClick={() => this.lihatChat(data.id_chat)} className="btn btn-success btn-block">
                     {" "}
                     {data.nama_pengechat}{" "}
                   </button>
