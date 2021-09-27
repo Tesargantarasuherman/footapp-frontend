@@ -24,7 +24,7 @@ class Chat extends Component {
     axios.get(`http://localhost:8000/chatsaya/${id}`, {}).then((res) => {
       setTimeout(() => {
         this.setState({ dataChatSaya: res.data.data }, () =>
-          console.log("val", this.state.dataChatSaya)
+          console.log("data chat saya", this.state.dataChatSaya)
         );
       }, 5000);
     });
@@ -90,7 +90,7 @@ class Chat extends Component {
                 <div className="d-flex justify-content-center text-light mx-2  mt-5">
                   <button onClick={() => this.lihatChat(data.id_chat)}>
                     {" "}
-                    {data.id_chat}{" "}
+                    {data.nama_pengechat}{" "}
                   </button>
                 </div>
               );
