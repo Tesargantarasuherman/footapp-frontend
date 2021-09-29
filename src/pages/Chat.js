@@ -87,8 +87,11 @@ class Chat extends Component {
           <div className="w-25 bg-success br-10 ">
             {this.state.dataChatSaya.map((data) => {
               return (
-                <div className="d-flex justify-content-center text-light mx-2  my-2">
-                  <button onClick={() => this.lihatChat(data.id_chat)} className="btn btn-success btn-block">
+                <div className="d-flex justify-content-center text-light mx-2  mt-5">
+                  <button
+                    onClick={() => this.lihatChat(data.id_chat)}
+                    className="btn btn-success btn-block"
+                  >
                     {" "}
                     {data.nama_pengechat}{" "}
                   </button>
@@ -97,7 +100,11 @@ class Chat extends Component {
             })}
           </div>
           <div className="w-75 bg-success br-20 ml-4 body-chat">
+            <nav class="navbar navbar-light bg-light">
+                <span class="navbar-brand mb-0 h1">Navbar</span>
+            </nav>
             <div className="mx-4 body-chat-center">
+
               {this.state.isiChatSaya.map((isi) => {
                 return (
                   <>
